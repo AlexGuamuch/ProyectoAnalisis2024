@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
+
 
 namespace SistemaSeguridad.Controllers
 {
