@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
-    public class RoleController: Controller
+    public class RoleController : Controller
     {
         private readonly IRepositoryRole repositoryRole;
         private readonly IServicioUsuarios servicioUsuarios;
@@ -15,38 +15,39 @@ namespace SistemaSeguridad.Controllers
             this.repositoryRole = repositoryRole;
             this.servicioUsuarios = servicioUsuarios;
         }
+
         public async Task<IActionResult> Index()
         {
             var role = await repositoryRole.Obtener();
             return View(role);
         }
 
-		public IActionResult Crear()
-		{
-			return View();
-		}
+        public IActionResult Crear()
+        {
+            return View();
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> Crear(Role role)
-		{
-			if (!ModelState.IsValid)
-			{
-				return View(role);
-			}
+        [HttpPost]
+        public async Task<IActionResult> Crear(Role role)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(role);
+            }
 
-			role.UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId();
+            role.UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId();
 
-			var existeRole = await repositoryRole.Existe(role.Nombre);
+            var existeRole = await repositoryRole.Existe(role.Nombre);
 
-			if (existeRole)
-			{
-				ModelState.AddModelError(nameof(role.Nombre), $"El nombre {role.Nombre} ya existe");
-				return View(role);
-			}
-			await repositoryRole.Crear(role);
+            if (existeRole)
+            {
+                ModelState.AddModelError(nameof(role.Nombre), $"El nombre {role.Nombre} ya existe");
+                return View(role);
+            }
+            await repositoryRole.Crear(role);
 
-			return RedirectToAction("Index");
-		}
+            return RedirectToAction("Index");
+        }
 
         [HttpGet]
         public async Task<IActionResult> VerifarRole(string nombre)
@@ -83,7 +84,6 @@ namespace SistemaSeguridad.Controllers
                 }
                 await repositoryRole.Borrar(idRole);
                 return RedirectToAction("Index");
-
             }
             catch (Exception ex)
             {
@@ -119,8 +119,6 @@ namespace SistemaSeguridad.Controllers
             return RedirectToAction("Index");
         }
 
-
- 	
         // Método para exportar a CSV
         [HttpGet]
         public async Task<IActionResult> ExportarCsv()
