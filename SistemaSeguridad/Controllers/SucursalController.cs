@@ -6,13 +6,13 @@ using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
-    public class SucursalController: Controller
+    public class SucursalController : Controller
     {
         private readonly IReposirorySucursal reposirorySucursal;
         private readonly IServicioUsuarios servicioUsuarios;
         private readonly IRepositoyEmpresa repositoyEmpresa;
 
-        public SucursalController(IReposirorySucursal reposirorySucursal, IServicioUsuarios servicioUsuarios, 
+        public SucursalController(IReposirorySucursal reposirorySucursal, IServicioUsuarios servicioUsuarios,
             IRepositoyEmpresa repositoyEmpresa)
         {
             this.reposirorySucursal = reposirorySucursal;
@@ -26,7 +26,6 @@ namespace SistemaSeguridad.Controllers
             return View(sucursal);
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Crear()
         {
@@ -37,109 +36,109 @@ namespace SistemaSeguridad.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Crear(SucursalCreacionViewModel sucursal) 
+        public async Task<IActionResult> Crear(SucursalCreacionViewModel sucursal)
         {
-			sucursal.UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId();
+            sucursal.UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId();
             sucursal.Empresa = await ObtenerEmpresas();
             await reposirorySucursal.Crear(sucursal);
             return RedirectToAction("Index");
-		}
+        }
 
-        private async Task<IEnumerable<SelectListItem>> ObtenerEmpresas() 
+        private async Task<IEnumerable<SelectListItem>> ObtenerEmpresas()
         {
-			var empresa = await repositoyEmpresa.Obtener();
-			return empresa.Select(x => new SelectListItem(x.Nombre, x.IdEmpresa.ToString()));
-		}
+            var empresa = await repositoyEmpresa.Obtener();
+            return empresa.Select(x => new SelectListItem(x.Nombre, x.IdEmpresa.ToString()));
+        }
 
-		[HttpGet]
-		public async Task<IActionResult> VerifarSucursal(string nombre)
-		{
-			var existeGenero = await reposirorySucursal.Existe(nombre);
-			if (existeGenero)
-			{
-				return Json($"El nombre {nombre} ya existe");
-			}
+        [HttpGet]
+        public async Task<IActionResult> VerifarSucursal(string nombre)
+        {
+            var existeGenero = await reposirorySucursal.Existe(nombre);
+            if (existeGenero)
+            {
+                return Json($"El nombre {nombre} ya existe");
+            }
 
-			return Json(true);
-		}
+            return Json(true);
+        }
 
-		public async Task<IActionResult> Borrar(int idSucursal)
-		{
-			var sucursal = await reposirorySucursal.ObtenerPorId(idSucursal);
+        public async Task<IActionResult> Borrar(int idSucursal)
+        {
+            var sucursal = await reposirorySucursal.ObtenerPorId(idSucursal);
 
-			if (sucursal is null)
-			{
-				return RedirectToAction("Index", "Sucursal");
-			}
-			return View(sucursal);
-		}
+            if (sucursal is null)
+            {
+                return RedirectToAction("Index", "Sucursal");
+            }
+            return View(sucursal);
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> BorrarSucursal(int idSucursal)
-		{
-			try
-			{
-				var sucursal = await reposirorySucursal.ObtenerPorId(idSucursal);
-				if (sucursal is null)
-				{
-					return RedirectToAction("Index", "Sucursal");
-				}
-				await reposirorySucursal.Borrar(idSucursal);
-				return RedirectToAction("Index");
+        [HttpPost]
+        public async Task<IActionResult> BorrarSucursal(int idSucursal)
+        {
+            try
+            {
+                var sucursal = await reposirorySucursal.ObtenerPorId(idSucursal);
+                if (sucursal is null)
+                {
+                    return RedirectToAction("Index", "Sucursal");
+                }
+                await reposirorySucursal.Borrar(idSucursal);
+                return RedirectToAction("Index");
 
-			}
-			catch (Exception ex)
-			{
-				throw new ApplicationException(ex + "No se puede borrar este registro");
-			}
-		}
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(ex + "No se puede borrar este registro");
+            }
+        }
 
-		[HttpGet]
-		public async Task<ActionResult> Editar(int idSucursal)
-		{
-			var sucursal = await reposirorySucursal.ObtenerPorId(idSucursal);
+        [HttpGet]
+        public async Task<ActionResult> Editar(int idSucursal)
+        {
+            var sucursal = await reposirorySucursal.ObtenerPorId(idSucursal);
 
-			if (sucursal is null)
-			{
-				return RedirectToAction("Index", "Sucursal");
-			}
+            if (sucursal is null)
+            {
+                return RedirectToAction("Index", "Sucursal");
+            }
 
-			return View(sucursal);
-		}
+            return View(sucursal);
+        }
 
-		[HttpPost]
-		public async Task<ActionResult> Editar(Sucursal sucursal)
-		{
-			sucursal.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
-			var sucursalExiste = await reposirorySucursal.ObtenerPorId(sucursal.IdSucursal);
+        [HttpPost]
+        public async Task<ActionResult> Editar(Sucursal sucursal)
+        {
+            sucursal.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
+            var sucursalExiste = await reposirorySucursal.ObtenerPorId(sucursal.IdSucursal);
 
-			if (sucursal is null)
-			{
-				return RedirectToAction("Index", "Sucursal");
-			}
+            if (sucursal is null)
+            {
+                return RedirectToAction("Index", "Sucursal");
+            }
 
-			await reposirorySucursal.ActualizarGeneral(sucursal);
-			return RedirectToAction("Index");
-		}
+            await reposirorySucursal.ActualizarGeneral(sucursal);
+            return RedirectToAction("Index");
+        }
 
-  		// Método para exportar a CSV
-		[HttpGet]
-			public async Task<IActionResult> ExportarCSV()
-			{
-  			  var sucursales = await reposirorySucursal.Obtener();
+        // Método para exportar a CSV
+        [HttpGet]
+        public async Task<IActionResult> ExportarCSV()
+        {
+            var sucursales = await reposirorySucursal.Obtener();
 
-   			 var csvBuilder = new StringBuilder();
- 			   csvBuilder.AppendLine("IdSucursal,Nombre, Direccion"); // Encabezados del CSV
+            var csvBuilder = new StringBuilder();
+            csvBuilder.AppendLine("IdSucursal,Nombre, Direccion"); // Encabezados del CSV
 
-			    foreach (var sucursal in sucursales)
-			    {
-			        csvBuilder.AppendLine($"{sucursal.IdSucursal},{sucursal.Nombre},{sucursal.Direccion}");
-  			 }
+            foreach (var sucursal in sucursales)
+            {
+                csvBuilder.AppendLine($"{sucursal.IdSucursal},{sucursal.Nombre},{sucursal.Direccion}");
+            }
 
- 			   var csvData = Encoding.UTF8.GetBytes(csvBuilder.ToString());
-  			  var fileName = $"Sucursales_{DateTime.Now:yyyyMMddHHmmss}.csv";
+            var csvData = Encoding.UTF8.GetBytes(csvBuilder.ToString());
+            var fileName = $"Sucursales_{DateTime.Now:yyyyMMddHHmmss}.csv";
 
-    				return File(csvData, "text/csv", fileName);
-			}
-	}
+            return File(csvData, "text/csv", fileName);
+        }
+    }
 }
