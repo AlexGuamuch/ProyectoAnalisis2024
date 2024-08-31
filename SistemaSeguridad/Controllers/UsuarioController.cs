@@ -9,6 +9,8 @@ using SistemaSeguridad.Servicios;
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace SistemaSeguridad.Controllers
 {
@@ -22,13 +24,15 @@ namespace SistemaSeguridad.Controllers
 		private readonly RepositoryUsuarios repositoryUsuarios;
 
         public UsuarioController(UserManager<UsuarioPrueba> userManager, IServicioUsuarios servicioUsuarios,
-			SignInManager<UsuarioPrueba> signInManager, IRepositoryGenero repositoryGenero, IReposirorySucursal reposirorySucursal)
+			SignInManager<UsuarioPrueba> signInManager, IRepositoryGenero repositoryGenero, IReposirorySucursal reposirorySucursal, 
+   			IWebHostEnvironment webHostEnvironment)
         {
 			this.userManager = userManager;
 			this.servicioUsuarios = servicioUsuarios;
 			this.signInManager = signInManager;
 			this.repositoryGenero = repositoryGenero;
 			this.reposirorySucursal = reposirorySucursal;
+   			this.webHostEnvironment = webHostEnvironment;
 		}
 
 		public IActionResult Index()
@@ -69,6 +73,19 @@ namespace SistemaSeguridad.Controllers
 				return View(modelo);
 			}
 
+			string uniqueFileName = null;
+			if (modelo.Fotografia != null)
+			{
+				string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "Uploads");
+				uniqueFileName = Guid.NewGuid().ToString() + "_" + modelo.Fotografia.FileName;
+				string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+				using (var fileStream = new FileStream(filePath, FileMode.Create))
+				{
+					await modelo.Fotografia.CopyToAsync(fileStream);
+					Console.WriteLine("Path de la imagen: " + modelo.Fotografia);
+				}
+			}
+
             modelo.Genero = await ObtenerGenero();
 			modelo.Sucursal = await ObtenerSucursal();
 
@@ -76,7 +93,7 @@ namespace SistemaSeguridad.Controllers
 												Nombre = modelo.Nombre, Apellido = modelo.Apellido, 
 												FechaNacimiento = modelo.FechaNacimiento, TelefonoMovil = modelo.TelefonoMovil,
 												UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId(), IdGenero = modelo.IdGenero,
-												IdSucursal = modelo.IdSucursal};
+												IdSucursal = modelo.IdSucursal, Fotografia = uniqueFileName};
 
 			var resultado = await userManager.CreateAsync(usuario, password:modelo.Password);
 
@@ -117,6 +134,7 @@ namespace SistemaSeguridad.Controllers
 	    var lastName = usuarioLogin.Apellido;
             var email = usuarioLogin.CorreoElectronico;
 	    var password = usuarioLogin.Password;
+     	    var Fotografia = usuarioLogin.Fotografia;
 
             var model = new UsuarioPrueba
             {
@@ -124,7 +142,8 @@ namespace SistemaSeguridad.Controllers
                 Nombre = userName,
 		 Apellido = lastName,
                 CorreoElectronico = email,
-		Password = password
+		Password = password,
+		Fotografia = Fotografia
             };
 
             return View(model);
