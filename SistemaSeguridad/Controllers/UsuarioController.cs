@@ -114,15 +114,17 @@ namespace SistemaSeguridad.Controllers
 
             var userId = usuarioLogin.IdUsuario;
             var userName = usuarioLogin.Nombre;
+	    var lastName = usuarioLogin.Apellido;
             var email = usuarioLogin.CorreoElectronico;
-			var password = usuarioLogin.Password;
+	    var password = usuarioLogin.Password;
 
             var model = new UsuarioPrueba
             {
                 IdUsuario = userId,
                 Nombre = userName,
+		 Apellido = lastName,
                 CorreoElectronico = email,
-				Password = password
+		Password = password
             };
 
             return View(model);
