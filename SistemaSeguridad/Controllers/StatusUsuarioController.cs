@@ -5,143 +5,142 @@ using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
-	public class StatusUsuarioController: Controller
-	{
-		private readonly IRepositoryStatusUsuario repositoryStatusUsuario;
-		private readonly IServicioUsuarios servicioUsuarios;
+    public class StatusUsuarioController : Controller
+    {
+        private readonly IRepositoryStatusUsuario repositoryStatusUsuario;
+        private readonly IServicioUsuarios servicioUsuarios;
 
-		public StatusUsuarioController(IRepositoryStatusUsuario repositoryStatusUsuario, IServicioUsuarios servicioUsuarios)
+        public StatusUsuarioController(IRepositoryStatusUsuario repositoryStatusUsuario, IServicioUsuarios servicioUsuarios)
         {
-			this.repositoryStatusUsuario = repositoryStatusUsuario;
-			this.servicioUsuarios = servicioUsuarios;
-		}
+            this.repositoryStatusUsuario = repositoryStatusUsuario;
+            this.servicioUsuarios = servicioUsuarios;
+        }
 
-		public async Task<IActionResult> Index()
-		{
-			var statusUsuario = await repositoryStatusUsuario.Obtener();
-			return View(statusUsuario);
-		}
-		public IActionResult Crear()
-		{
-			return View();
-		}
+        public async Task<IActionResult> Index()
+        {
+            var statusUsuario = await repositoryStatusUsuario.Obtener();
+            return View(statusUsuario);
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> Crear(StatusUsuario statusUsuario) 
-		{
-			if (!ModelState.IsValid)
-			{
-				return View(statusUsuario);
-			}
+        public IActionResult Crear()
+        {
+            return View();
+        }
 
-			statusUsuario.UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId();
+        [HttpPost]
+        public async Task<IActionResult> Crear(StatusUsuario statusUsuario)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(statusUsuario);
+            }
 
-			var existeUsuario = await repositoryStatusUsuario.Existe(statusUsuario.Nombre);
+            statusUsuario.UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId();
 
-			if (existeUsuario)
-			{
-				ModelState.AddModelError(nameof(statusUsuario.Nombre), $"El nombre {statusUsuario.Nombre} ya existe");
-				return View(statusUsuario);
-			}
-			await repositoryStatusUsuario.Crear(statusUsuario);
+            var existeUsuario = await repositoryStatusUsuario.Existe(statusUsuario.Nombre);
 
-			return RedirectToAction("Index");
-		}
+            if (existeUsuario)
+            {
+                ModelState.AddModelError(nameof(statusUsuario.Nombre), $"El nombre {statusUsuario.Nombre} ya existe");
+                return View(statusUsuario);
+            }
+            await repositoryStatusUsuario.Crear(statusUsuario);
 
-		[HttpGet]
-		public async Task<IActionResult> VerifarStatusUsusario(string nombre)
-		{
-			var existeStatusUsuario = await repositoryStatusUsuario.Existe(nombre);
-			if (existeStatusUsuario)
-			{
-				return Json($"El nombre {nombre} ya existe");
-			}
+            return RedirectToAction("Index");
+        }
 
-			return Json(true);
-		}
+        [HttpGet]
+        public async Task<IActionResult> VerifarStatusUsusario(string nombre)
+        {
+            var existeStatusUsuario = await repositoryStatusUsuario.Existe(nombre);
+            if (existeStatusUsuario)
+            {
+                return Json($"El nombre {nombre} ya existe");
+            }
 
-		public async Task<IActionResult> Borrar(int idStatusUsuario)
-		{
-			var statusUsuario = await repositoryStatusUsuario.ObtenerPorId(idStatusUsuario);
+            return Json(true);
+        }
 
-			if (statusUsuario is null)
-			{
-				return RedirectToAction("Index", "StatusUsuario");
-			}
-			return View(statusUsuario);
-		}
+        public async Task<IActionResult> Borrar(int idStatusUsuario)
+        {
+            var statusUsuario = await repositoryStatusUsuario.ObtenerPorId(idStatusUsuario);
 
-		[HttpPost]
-		public async Task<IActionResult> BorrarStatusUsuario(int idStatusUsuario)
-		{
-			try
-			{
-				var statusUsuario = await repositoryStatusUsuario.ObtenerPorId(idStatusUsuario);
-				if (statusUsuario is null)
-				{
-					return RedirectToAction("Index", "StatusUsuario");
-				}
-				await repositoryStatusUsuario.Borrar(idStatusUsuario);
-				return RedirectToAction("Index");
+            if (statusUsuario is null)
+            {
+                return RedirectToAction("Index", "StatusUsuario");
+            }
+            return View(statusUsuario);
+        }
 
-			}
-			catch (Exception ex)
-			{
-				throw new ApplicationException(ex + "No se puede borrar este registro");
-			}
-		}
+        [HttpPost]
+        public async Task<IActionResult> BorrarStatusUsuario(int idStatusUsuario)
+        {
+            try
+            {
+                var statusUsuario = await repositoryStatusUsuario.ObtenerPorId(idStatusUsuario);
+                if (statusUsuario is null)
+                {
+                    return RedirectToAction("Index", "StatusUsuario");
+                }
+                await repositoryStatusUsuario.Borrar(idStatusUsuario);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(ex + "No se puede borrar este registro");
+            }
+        }
 
-		[HttpGet]
-		public async Task<ActionResult> Editar(int idStatusUsuario)
-		{
-			var statusUsuario = await repositoryStatusUsuario.ObtenerPorId(idStatusUsuario);
+        [HttpGet]
+        public async Task<ActionResult> Editar(int idStatusUsuario)
+        {
+            var statusUsuario = await repositoryStatusUsuario.ObtenerPorId(idStatusUsuario);
 
-			if (statusUsuario is null)
-			{
-				return RedirectToAction("Index", "StatusUsuario");
-			}
+            if (statusUsuario is null)
+            {
+                return RedirectToAction("Index", "StatusUsuario");
+            }
 
-			return View(statusUsuario);
-		}
+            return View(statusUsuario);
+        }
 
-		[HttpPost]
-		public async Task<ActionResult> Editar(StatusUsuario statusUsuario)
-		{
-			statusUsuario.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
-			var estatusExiste = await repositoryStatusUsuario.ObtenerPorId(statusUsuario.IdStatusUsuario);
+        [HttpPost]
+        public async Task<ActionResult> Editar(StatusUsuario statusUsuario)
+        {
+            statusUsuario.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
+            var estatusExiste = await repositoryStatusUsuario.ObtenerPorId(statusUsuario.IdStatusUsuario);
 
-			if (estatusExiste is null)
-			{
-				return RedirectToAction("Index", "StatusUsuario");
-			}
+            if (estatusExiste is null)
+            {
+                return RedirectToAction("Index", "StatusUsuario");
+            }
 
-			await repositoryStatusUsuario.ActualizarGeneral(statusUsuario);
-			return RedirectToAction("Index");
-		}
+            await repositoryStatusUsuario.ActualizarGeneral(statusUsuario);
+            return RedirectToAction("Index");
+        }
 
-		  // Método para exportar a CSV
-	 [HttpGet]
-		  public async Task<IActionResult> ExportarCsv()
-		  {
-  		  	  var statusUsuarios = await repositoryStatusUsuario.Obtener();
-    			  var sb = new StringBuilder();
+        // Método para exportar a CSV
+        [HttpGet]
+        public async Task<IActionResult> ExportarCsv()
+        {
+            var statusUsuarios = await repositoryStatusUsuario.Obtener();
+            var sb = new StringBuilder();
 
-    			  // Cabecera del archivo CSV
-    		  sb.AppendLine("IdStatusUsuario,Nombre");
+            // Cabecera del archivo CSV
+            sb.AppendLine("IdStatusUsuario,Nombre");
 
-    		  // Contenido del CSV
-    		  foreach (var statusUsuario in statusUsuarios)
-     		 {
-         		 sb.AppendLine($"{statusUsuario.IdStatusUsuario},{statusUsuario.Nombre}");
-     		 }
+            // Contenido del CSV
+            foreach (var statusUsuario in statusUsuarios)
+            {
+                sb.AppendLine($"{statusUsuario.IdStatusUsuario},{statusUsuario.Nombre}");
+            }
 
-    		  // Convertir el contenido a bytes
-   		   var fileName = "StatusUsuarios.csv";
-   		   var fileContent = Encoding.UTF8.GetBytes(sb.ToString());
+            // Convertir el contenido a bytes
+            var fileName = "StatusUsuarios.csv";
+            var fileContent = Encoding.UTF8.GetBytes(sb.ToString());
 
-   		   // Retornar el archivo CSV
-  		    return File(fileContent, "text/csv", fileName);
-		  }
-    
-	}
+            // Retornar el archivo CSV
+            return File(fileContent, "text/csv", fileName);
+        }
+    }
 }
