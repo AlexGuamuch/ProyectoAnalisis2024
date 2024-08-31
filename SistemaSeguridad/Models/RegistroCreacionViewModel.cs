@@ -2,9 +2,10 @@
 
 namespace SistemaSeguridad.Models
 {
-    public class UsuarioCreacionViewModel: UsuarioPrueba
+    public class RegistroCreacionViewModel: RegistroViewModel
     {
         public IEnumerable<SelectListItem> Genero { get; set; }
+		public IEnumerable<SelectListItem> Sucursal { get; set; }
 
 	}
 }

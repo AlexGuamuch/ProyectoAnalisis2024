@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
+using SistemaSeguridad;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
 
@@ -18,6 +20,7 @@ builder.Services.AddTransient<IRepositoryStatusUsuario, RepositoryStatusUsuario>
 builder.Services.AddTransient<IRepositoryRole, RepositoryRole>();
 builder.Services.AddTransient<IRepositoryOpcion, RepositoryOpcion>();
 builder.Services.AddTransient<IRepositoryModulo, RepositoryModulo>();
+builder.Services.AddTransient<IRepositoryBitacoraAcceso, RepositoryBitacoraAcceso>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<IReposirorySucursal, RepositorySucursal>();
 builder.Services.AddTransient<IRepositoryUsuarios, RepositoryUsuarios>();
@@ -42,6 +45,8 @@ builder.Services.AddAuthentication(options =>
 	opciones.LoginPath = "/UsuarioLogin/Login";
 
 });
+
+builder.Services.AddDbContext<ApplicationDbContext>(opciones => opciones.UseSqlServer("name=DefaultConnection"));
 
 var app = builder.Build();
 

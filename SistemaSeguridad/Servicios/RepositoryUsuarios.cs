@@ -9,7 +9,8 @@ namespace SistemaSeguridad.Servicios
 		Task<UsuarioPrueba> BuscarUsuarioEmail(string CorreoElectronico);
 		Task<UsuarioPrueba> BuscarUsuarioNombre(string Nombre);
 		Task<string> CrearUsuario(UsuarioPrueba usuarioPrueba);
-    }
+		Task<IEnumerable<UsuarioPrueba>> Obtener();
+	}
 	public class RepositoryUsuarios: IRepositoryUsuarios
 	{
 		private readonly string connectionString;
@@ -25,7 +26,7 @@ namespace SistemaSeguridad.Servicios
 								CorreoElectronico,Nombre,Apellido,FechaNacimiento,IdStatusUsuario,Password,TelefonoMovil,
 								IdGenero,IntentosDeAcceso,RequiereCambiarPassword,IdSucursal,FechaCreacion,UsuarioCreacion)
 								values(@IdUsuario,@CorreoElectronico,@Nombre,@Apellido,@FechaNacimiento,1,@Password,@TelefonoMovil,
-								1,0,1,1,GETDATE(),@UsuarioCreacion);
+								@IdGenero,0,1,@IdSucursal,GETDATE(),@UsuarioCreacion);
 								SELECT IdUsuario FROM USUARIO WHERE IdUsuario = @IdUsuario;", usuarioPrueba);
 			return IdUsuario;
 		}
@@ -42,6 +43,12 @@ namespace SistemaSeguridad.Servicios
 			using var connection = new SqlConnection(connectionString);
 			return await connection.QuerySingleOrDefaultAsync<UsuarioPrueba>
 				("select * from USUARIO where IdUsuario = @Nombre", new { Nombre });
+		}
+
+		public async Task<IEnumerable<UsuarioPrueba>> Obtener()
+		{
+			using var connection = new SqlConnection(connectionString);
+			return await connection.QueryAsync<UsuarioPrueba>(@"select IdUsuario, Nombre from USUARIO");
 		}
 	}
 }

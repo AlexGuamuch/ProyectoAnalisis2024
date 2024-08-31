@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace SistemaSeguridad.Models
 {
@@ -22,5 +23,7 @@ namespace SistemaSeguridad.Models
 		public string Password { get; set; }
 		public string TelefonoMovil { get; set; }
 		public string UsuarioCreacion { get; set; }
+        public int IdGenero { get; set; }
+		public int IdSucursal { get; set; }
 	}
 }

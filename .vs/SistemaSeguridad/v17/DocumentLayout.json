@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\models\\usuariocreacionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\models\\usuariocreacionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\servicios\\repositorybitacoraacceso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\servicios\\repositorybitacoraacceso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\servicios\\usuariostore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\servicios\\usuariostore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\controllers\\usuariologincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\controllers\\usuariologincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +31,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UsuarioCreacionViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Models\\UsuarioCreacionViewModel.cs",
-              "RelativeDocumentMoniker": "SistemaSeguridad\\Models\\UsuarioCreacionViewModel.cs",
-              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Models\\UsuarioCreacionViewModel.cs",
-              "RelativeToolTip": "SistemaSeguridad\\Models\\UsuarioCreacionViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Title": "RepositoryBitacoraAcceso.cs",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Servicios\\RepositoryBitacoraAcceso.cs",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\Servicios\\RepositoryBitacoraAcceso.cs",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Servicios\\RepositoryBitacoraAcceso.cs",
+              "RelativeToolTip": "SistemaSeguridad\\Servicios\\RepositoryBitacoraAcceso.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T23:58:07.06Z",
+              "WhenOpened": "2024-08-31T06:06:35.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\Controllers\\RoleController.cs",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "SistemaSeguridad\\Controllers\\RoleController.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAwwCwAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-31T06:00:35.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "SistemaSeguridad\\Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAAwHcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-31T05:59:58.539Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuarioStore.cs",
-              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Servicios\\UsuarioStore.cs",
-              "RelativeDocumentMoniker": "SistemaSeguridad\\Servicios\\UsuarioStore.cs",
-              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Servicios\\UsuarioStore.cs",
-              "RelativeToolTip": "SistemaSeguridad\\Servicios\\UsuarioStore.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "UsuarioLoginController.cs",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\UsuarioLoginController.cs",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\Controllers\\UsuarioLoginController.cs",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\UsuarioLoginController.cs",
+              "RelativeToolTip": "SistemaSeguridad\\Controllers\\UsuarioLoginController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwEwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T23:57:45.101Z",
+              "WhenOpened": "2024-08-31T05:59:14.322Z",
               "EditorCaption": ""
             }
           ]

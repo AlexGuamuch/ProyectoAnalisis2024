@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
 using System.Runtime.CompilerServices;
@@ -15,46 +17,73 @@ namespace SistemaSeguridad.Controllers
 		private readonly UserManager<UsuarioPrueba> userManager;
 		private readonly IServicioUsuarios servicioUsuarios;
 		private readonly SignInManager<UsuarioPrueba> signInManager;
+		private readonly IRepositoryGenero repositoryGenero;
+		private readonly IReposirorySucursal reposirorySucursal;
 		private readonly RepositoryUsuarios repositoryUsuarios;
 
-		public UsuarioController(UserManager<UsuarioPrueba> userManager, IServicioUsuarios servicioUsuarios,
-			SignInManager<UsuarioPrueba> signInManager)
+        public UsuarioController(UserManager<UsuarioPrueba> userManager, IServicioUsuarios servicioUsuarios,
+			SignInManager<UsuarioPrueba> signInManager, IRepositoryGenero repositoryGenero, IReposirorySucursal reposirorySucursal)
         {
 			this.userManager = userManager;
 			this.servicioUsuarios = servicioUsuarios;
 			this.signInManager = signInManager;
+			this.repositoryGenero = repositoryGenero;
+			this.reposirorySucursal = reposirorySucursal;
 		}
 
-        public IActionResult Index()
-        {
+		public IActionResult Index()
+		{
             return View();
         }
 
-        public IActionResult Registro() 
+        private async Task<IEnumerable<SelectListItem>> ObtenerGenero()
+        {
+            var modulo = await repositoryGenero.Obtener();
+            return modulo.Select(x => new SelectListItem(x.Nombre, x.IdGenero.ToString()));
+        }
+		private async Task<IEnumerable<SelectListItem>> ObtenerSucursal()
+		{
+			var modulo = await reposirorySucursal.Obtener();
+			return modulo.Select(x => new SelectListItem(x.Nombre, x.IdSucursal.ToString()));
+		}
+		/*
+        public IActionResult Registro()
 		{
 			return View();
 		}
+		*/
+		[HttpGet]
+        public async Task<IActionResult> Registro()
+        {
+            var modelo = new RegistroCreacionViewModel();
+            modelo.Genero = await ObtenerGenero();
+			modelo.Sucursal = await ObtenerSucursal();
+            return View(modelo);
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> Registro(RegistroViewModel modelo)
+        [HttpPost]
+		public async Task<IActionResult> Registro(RegistroCreacionViewModel modelo)
 		{
 			if (!ModelState.IsValid) 
 			{
 				return View(modelo);
 			}
 
+            modelo.Genero = await ObtenerGenero();
+			modelo.Sucursal = await ObtenerSucursal();
 
 			var usuario = new UsuarioPrueba() { CorreoElectronico = modelo.CorreoElectronico, IdUsuario = modelo.IdUsuario,
 												Nombre = modelo.Nombre, Apellido = modelo.Apellido, 
 												FechaNacimiento = modelo.FechaNacimiento, TelefonoMovil = modelo.TelefonoMovil,
-												UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId()};
+												UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId(), IdGenero = modelo.IdGenero,
+												IdSucursal = modelo.IdSucursal};
 
 			var resultado = await userManager.CreateAsync(usuario, password:modelo.Password);
 
 			if (resultado.Succeeded)
 			{
 				//await signInManager.SignInAsync(usuario, isPersistent: false);
-				return RedirectToAction("Index", "Home");
+				return RedirectToAction("Index", "Usuario");
 			}
 			else 
 			{

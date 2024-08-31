@@ -1,4 +1,4 @@
-﻿@model RegistroViewModel
+﻿@model RegistroCreacionViewModel
 
 @{
 	ViewData["Title"] = "Registro";
@@ -46,9 +46,21 @@
 	</div>
 
 	<div class="mb-3">
+		<label asp-for="IdGenero" class="form-label"></label>
+		<select asp-for="IdGenero" asp-items="Model.Genero" class="form-select"></select>
+		<span asp-validation-for="IdGenero" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
 		<label asp-for="TelefonoMovil" class="form-label"></label>
 		<input asp-for="TelefonoMovil" class="form-control" />
 		<span asp-validation-for="TelefonoMovil" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+		<label asp-for="IdSucursal" class="form-label"></label>
+		<select asp-for="IdSucursal" asp-items="Model.Sucursal" class="form-select"></select>
+		<span asp-validation-for="IdSucursal" class="text-danger"></span>
 	</div>
 
 	<button class="btn btn-primary">Registro</button>
