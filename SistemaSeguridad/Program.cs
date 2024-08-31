@@ -26,6 +26,7 @@ builder.Services.AddTransient<IReposirorySucursal, RepositorySucursal>();
 builder.Services.AddTransient<IRepositoryUsuarios, RepositoryUsuarios>();
 builder.Services.AddTransient<IRepositoryMenu, RepositoryMenu>();
 builder.Services.AddTransient<IUserStore<UsuarioPrueba>, UsuarioStore>();
+builder.Services.AddTransient<IRepositoryUsuarioPregunta, UsuarioPreguntaRepository>();
 builder.Services.AddTransient<SignInManager<UsuarioPrueba>>();
 builder.Services.AddIdentityCore<UsuarioPrueba>(opciones =>
 {
