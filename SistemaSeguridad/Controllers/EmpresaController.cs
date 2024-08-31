@@ -114,5 +114,22 @@ namespace SistemaSeguridad.Controllers
             await repositoyEmpresa.ActualizarGeneral(empresa);
             return RedirectToAction("Index");
         }
+	
+        // Metodo para exportar a CSV
+        [HttpGet]
+        public async Task<IActionResult> ExportarCSV()
+        {
+            var empresas = await repositoyEmpresa.Obtener();
+
+            var builder = new StringBuilder();
+            builder.AppendLine("IdEmpresa,Nombre,Direccion,NIT");
+
+            foreach (var empresa in empresas)
+            {
+                builder.AppendLine($"{empresa.IdEmpresa},{empresa.Nombre},{empresa.Direccion},{empresa.Nit}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "Empresas.csv");
+        }
     }
 }
