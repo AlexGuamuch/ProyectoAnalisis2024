@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
+
 
 namespace SistemaSeguridad.Controllers
 {
@@ -132,6 +134,31 @@ namespace SistemaSeguridad.Controllers
 			await repositoryOpcion.ActualizarGeneral(opcion);
 			return RedirectToAction("Index");
 		}
+
+  		
+        // Método para exportar a CSV
+        [HttpGet]
+        public async Task<IActionResult> ExportarCsv()
+        {
+            var opciones = await repositoryOpcion.Obtener();
+            var sb = new StringBuilder();
+
+            // Cabecera del archivo CSV
+            sb.AppendLine("IdOpcion,Nombre");
+
+            // Contenido del CSV
+            foreach (var opcion in opciones)
+            {
+                sb.AppendLine($"{opcion.IdOpcion},{opcion.Nombre}");
+            }
+
+            // Convertir el contenido a bytes
+            var fileName = "Opciones.csv";
+            var fileContent = Encoding.UTF8.GetBytes(sb.ToString());
+
+            // Retornar el archivo CSV
+            return File(fileContent, "text/csv", fileName);
+        }
 
 	}
 }
