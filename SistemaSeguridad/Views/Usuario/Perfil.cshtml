@@ -8,15 +8,15 @@
 	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 	<div class="mb-3">
-		<label asp-for="IdUsuario" class="form-label"></label>
-		<input asp-for="IdUsuario" class="form-control" />
-		<span asp-validation-for="IdUsuario" class="text-danger"></span>
+	<label asp-for="IdUsuario" class="form-label"></label>
+	<input asp-for="IdUsuario" class="form-control" />
+	<span asp-validation-for="IdUsuario" class="text-danger"></span>
 	</div>
 
 	<div class="mb-3">
-		<label asp-for="Nombre" class="form-label"></label>
-		<input asp-for="Nombre" class="form-control" />
-		<span asp-validation-for="Nombre" class="text-danger"></span>
+	<label asp-for="Nombre" class="form-label"></label>
+	<input asp-for="Nombre" class="form-control" />
+	<span asp-validation-for="Nombre" class="text-danger"></span>
 	</div>
 
 	<div class="mb-3">
@@ -32,4 +32,5 @@
 	</div>
 
 	<button class="btn btn-primary">Editar</button>
+	<a class="btn btn-primary" asp-controller="UsuarioPregunta" asp-action="Crear">Preguntas de Seguridad</a>
 </form>
