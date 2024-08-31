@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
@@ -116,6 +117,32 @@ namespace SistemaSeguridad.Controllers
 
             await repositoryRole.ActualizarGeneral(role);
             return RedirectToAction("Index");
+        }
+
+
+ 	
+        // Método para exportar a CSV
+        [HttpGet]
+        public async Task<IActionResult> ExportarCsv()
+        {
+            var roles = await repositoryRole.Obtener();
+            var sb = new StringBuilder();
+
+            // Cabecera del archivo CSV
+            sb.AppendLine("IdRole,Nombre");
+
+            // Contenido del CSV
+            foreach (var role in roles)
+            {
+                sb.AppendLine($"{role.IdRole},{role.Nombre}");
+            }
+
+            // Convertir el contenido a bytes
+            var fileName = "Roles.csv";
+            var fileContent = Encoding.UTF8.GetBytes(sb.ToString());
+
+            // Retornar el archivo CSV
+            return File(fileContent, "text/csv", fileName);
         }
     }
 }
