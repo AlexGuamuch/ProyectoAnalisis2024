@@ -22,6 +22,7 @@ namespace SistemaSeguridad.Controllers
 		private readonly IRepositoryGenero repositoryGenero;
 		private readonly IReposirorySucursal reposirorySucursal;
 		private readonly RepositoryUsuarios repositoryUsuarios;
+		private readonly IWebHostEnvironment webHostEnvironment;
 
         public UsuarioController(UserManager<UsuarioPrueba> userManager, IServicioUsuarios servicioUsuarios,
 			SignInManager<UsuarioPrueba> signInManager, IRepositoryGenero repositoryGenero, IReposirorySucursal reposirorySucursal, 
