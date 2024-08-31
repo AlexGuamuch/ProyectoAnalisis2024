@@ -65,10 +65,12 @@ namespace SistemaSeguridad.Controllers
    				//bitacora acceso
 				var userId = usuario.IdUsuario;
 				var HttpUserAgent = Request.Headers["User-Agent"];
+    				var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
 				var bitacora = new BitacoraAcceso
 				{
 					IdUsuario = userId,
-					HttpUserAgent = HttpUserAgent
+					HttpUserAgent = HttpUserAgent,
+     					DireccionIp = ipAddress
 				};
 				await repositoryBitacoraAcceso.Bitacora(bitacora);
 				// Reiniciar contadores y fecha de desbloqueo
