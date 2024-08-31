@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SistemaSeguridad.Controllers
 {
@@ -114,5 +116,25 @@ namespace SistemaSeguridad.Controllers
 
 			return Json(true);
 		}
+
+		    // funcion para exportar a CSV
+ 	   [HttpGet]
+
+	    public async Task<IActionResult> ExportarCSV()
+  	  {
+    	    var generos = await repositoryGenero.Obtener();
+    	    var csv = new StringBuilder();
+     		   csv.AppendLine("Nombre, IdGenero"); // Encabezado de la columna
+
+      		  foreach (var genero in generos)
+       		 {
+        	    csv.AppendLine($"{genero.IdGenero},{genero.Nombre}"); // Datos del CSV
+       		 }
+
+      	  var bytes = Encoding.UTF8.GetBytes(csv.ToString());
+      	  return File(bytes, "text/csv", "generos.csv");
+    }
+}
+   
 	}
 }
