@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
@@ -118,5 +119,25 @@ namespace SistemaSeguridad.Controllers
             await repositoryModulo.ActualizarGeneral(modulo);
             return RedirectToAction("Index");
         }
+
+         // Método para exportar a CSV
+         [HttpGet]
+             public async Task<IActionResult> ExportarCSV()
+             {
+                 var modulos = await repositoryModulo.Obtener();
+
+                 var csvBuilder = new StringBuilder();
+         csvBuilder.AppendLine("IdModulo,Nombre"); // Encabezados del CSV
+
+             foreach (var modulo in modulos)
+         {
+             csvBuilder.AppendLine($"{modulo.IdModulo},{modulo.Nombre}");
+         }
+
+             var csvData = Encoding.UTF8.GetBytes(csvBuilder.ToString());
+             var fileName = $"Modulos_{DateTime.Now:yyyyMMddHHmmss}.csv";
+
+             return File(csvData, "text/csv", fileName);
+            }
     }
 }
