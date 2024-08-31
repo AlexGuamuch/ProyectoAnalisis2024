@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
@@ -120,5 +121,25 @@ namespace SistemaSeguridad.Controllers
 			await reposirorySucursal.ActualizarGeneral(sucursal);
 			return RedirectToAction("Index");
 		}
+
+  		// Método para exportar a CSV
+		[HttpGet]
+			public async Task<IActionResult> ExportarCSV()
+			{
+  			  var sucursales = await reposirorySucursal.Obtener();
+
+   			 var csvBuilder = new StringBuilder();
+ 			   csvBuilder.AppendLine("IdSucursal,Nombre, Direccion"); // Encabezados del CSV
+
+			    foreach (var sucursal in sucursales)
+			    {
+			        csvBuilder.AppendLine($"{sucursal.IdSucursal},{sucursal.Nombre},{sucursal.Direccion}");
+  			 }
+
+ 			   var csvData = Encoding.UTF8.GetBytes(csvBuilder.ToString());
+  			  var fileName = $"Sucursales_{DateTime.Now:yyyyMMddHHmmss}.csv";
+
+    				return File(csvData, "text/csv", fileName);
+			}
 	}
 }
