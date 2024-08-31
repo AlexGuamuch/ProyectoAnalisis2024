@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
@@ -117,5 +118,30 @@ namespace SistemaSeguridad.Controllers
 			await repositoryStatusUsuario.ActualizarGeneral(statusUsuario);
 			return RedirectToAction("Index");
 		}
+
+		  // Método para exportar a CSV
+	 [HttpGet]
+		  public async Task<IActionResult> ExportarCsv()
+		  {
+  		  	  var statusUsuarios = await repositoryStatusUsuario.Obtener();
+    			  var sb = new StringBuilder();
+
+    			  // Cabecera del archivo CSV
+    		  sb.AppendLine("IdStatusUsuario,Nombre");
+
+    		  // Contenido del CSV
+    		  foreach (var statusUsuario in statusUsuarios)
+     		 {
+         		 sb.AppendLine($"{statusUsuario.IdStatusUsuario},{statusUsuario.Nombre}");
+     		 }
+
+    		  // Convertir el contenido a bytes
+   		   var fileName = "StatusUsuarios.csv";
+   		   var fileContent = Encoding.UTF8.GetBytes(sb.ToString());
+
+   		   // Retornar el archivo CSV
+  		    return File(fileContent, "text/csv", fileName);
+		  }
+    
 	}
 }
