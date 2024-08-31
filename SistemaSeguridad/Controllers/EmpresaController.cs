@@ -4,28 +4,29 @@ using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
 using System.Text;
 
-
 namespace SistemaSeguridad.Controllers
 {
-	public class EmpresaController: Controller
-	{
-		private readonly IRepositoyEmpresa repositoyEmpresa;
-		private readonly IServicioUsuarios servicioUsuarios;
+    public class EmpresaController : Controller
+    {
+        private readonly IRepositoyEmpresa repositoyEmpresa;
+        private readonly IServicioUsuarios servicioUsuarios;
 
-		public EmpresaController(IRepositoyEmpresa repositoyEmpresa, IServicioUsuarios servicioUsuarios)
+        public EmpresaController(IRepositoyEmpresa repositoyEmpresa, IServicioUsuarios servicioUsuarios)
         {
-			this.repositoyEmpresa = repositoyEmpresa;
-			this.servicioUsuarios = servicioUsuarios;
-		}
-		public async Task<IActionResult> Index()
-		{
-			var empresa = await repositoyEmpresa.Obtener();
-			return View(empresa);
-		}
-		public IActionResult Crear()
-		{
-			return View();
-		}
+            this.repositoyEmpresa = repositoyEmpresa;
+            this.servicioUsuarios = servicioUsuarios;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var empresa = await repositoyEmpresa.Obtener();
+            return View(empresa);
+        }
+
+        public IActionResult Crear()
+        {
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Crear(Empresa empresa)
@@ -50,32 +51,33 @@ namespace SistemaSeguridad.Controllers
         }
 
         [HttpGet]
-		public async Task<IActionResult> VerifarEmpresa(string nombre)
-		{
-			var existeEmpresa = await repositoyEmpresa.Existe(nombre);
-			if (existeEmpresa)
-			{
-				return Json($"El nombre {nombre} ya existe");
-			}
+        public async Task<IActionResult> VerifarEmpresa(string nombre)
+        {
+            var existeEmpresa = await repositoyEmpresa.Existe(nombre);
+            if (existeEmpresa)
+            {
+                return Json($"El nombre {nombre} ya existe");
+            }
 
-			return Json(true);
-		}
+            return Json(true);
+        }
 
-        public async Task<IActionResult> Borrar(int idEmpresa) 
-		{
-			var empresa = await repositoyEmpresa.ObtenerPorId(idEmpresa);
+        public async Task<IActionResult> Borrar(int idEmpresa)
+        {
+            var empresa = await repositoyEmpresa.ObtenerPorId(idEmpresa);
 
-			if (empresa is null)
-			{
-				return RedirectToAction("Index", "Empresa");
-			}
-			return View(empresa);
-		}
+            if (empresa is null)
+            {
+                return RedirectToAction("Index", "Empresa");
+            }
+            return View(empresa);
+        }
 
         [HttpPost]
         public async Task<IActionResult> BorrarEmpresa(int idEmpresa)
         {
-            try {
+            try
+            {
                 var empresa = await repositoyEmpresa.ObtenerPorId(idEmpresa);
                 if (empresa is null)
                 {
@@ -84,7 +86,9 @@ namespace SistemaSeguridad.Controllers
                 await repositoyEmpresa.Borrar(idEmpresa);
                 return RedirectToAction("Index");
 
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 throw new ApplicationException(ex + "No se puede borrar este registro");
             }
         }
@@ -116,7 +120,7 @@ namespace SistemaSeguridad.Controllers
             await repositoyEmpresa.ActualizarGeneral(empresa);
             return RedirectToAction("Index");
         }
-	
+
         // Metodo para exportar a CSV
         [HttpGet]
         public async Task<IActionResult> ExportarCSV()
