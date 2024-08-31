@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
@@ -132,5 +133,22 @@ namespace SistemaSeguridad.Controllers
 			await repositoryMenu.ActualizarGeneral(menu);
 			return RedirectToAction("Index");
 		}
+
+		 [HttpGet]
+			 public async Task<IActionResult> ExportarCSV()
+			 {
+  			   var menus = await repositoryMenu.Obtener();
+
+   			  var builder = new StringBuilder();
+  			   builder.AppendLine("IdMenu,Nombre");
+
+   			  foreach (var menu in menus)
+    			 {
+      			   builder.AppendLine($"{menu.IdMenu},{menu.Nombre}");
+   			  }
+
+    		 return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "Menus.csv");
+		 }
+  
 	}
 }
