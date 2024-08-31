@@ -8,6 +8,7 @@
 		public DateTime FechaNacimiento { get; set; }
 		public string CorreoElectronico { get; set; }
 		public string Password { get; set; }
+		public string Fotografia { get; set; }		
 		public int IdGenero { get; set; }
 		public int IdSucursal { get; set; }
 		public string TelefonoMovil { get; set; }
