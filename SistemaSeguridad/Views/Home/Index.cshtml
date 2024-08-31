@@ -1,8 +1,70 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewBag.Title = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEmpresa" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Parametros Generales
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownEmpresa">
+                        <a class="dropdown-item" href="@Url.Action("Index", "Empresa")">Empresas</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Genero")">Géneros</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Sucursal")">Sucursales</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "StatusUsuario")">Status Usuario</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Role")">Roles</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Opcion")">Opciones</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Menu")">Menú</a>
+                        <a class="dropdown-item" href="@Url.Action("Index", "Modulo")">Modulos</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUsuario" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Acciones
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownUsuario">
+                        <a class="dropdown-item" href="@Url.Action("Index", "Usuario")">Usuarios</a>
+                        
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRol" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Estadisticas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownRol">
+                        
+                    </div>
+                </li>
+
+                
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Bienvenido al Sistema</h1>
+       
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
