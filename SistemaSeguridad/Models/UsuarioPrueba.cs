@@ -10,5 +10,8 @@
 		public string Password { get; set; }
 		public string TelefonoMovil { get; set; }
 		public string UsuarioCreacion { get; set; }
+		public int IntentosDeAcceso { get; set; }
+ 		public DateTime? FechaDesbloqueo { get; set; }
+ 		public int IdStatusUsuario { get; set; }
     }
 }
