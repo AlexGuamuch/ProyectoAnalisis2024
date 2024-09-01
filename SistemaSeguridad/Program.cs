@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using SistemaSeguridad;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
@@ -26,14 +27,16 @@ builder.Services.AddTransient<IReposirorySucursal, RepositorySucursal>();
 builder.Services.AddTransient<IRepositoryUsuarios, RepositoryUsuarios>();
 builder.Services.AddTransient<IRepositoryMenu, RepositoryMenu>();
 builder.Services.AddTransient<IUserStore<UsuarioPrueba>, UsuarioStore>();
+builder.Services.AddTransient<IRepositoryUsuarioPregunta, UsuarioPreguntaRepository>();
 builder.Services.AddTransient<SignInManager<UsuarioPrueba>>();
 builder.Services.AddIdentityCore<UsuarioPrueba>(opciones =>
 {
-	opciones.Password.RequireDigit = false;
+	opciones.Password.RequireDigit = false; // Desactiva validaciones predeterminadas si es necesario
 	opciones.Password.RequireLowercase = false;
 	opciones.Password.RequireUppercase = false;
 	opciones.Password.RequireNonAlphanumeric = false;
-});
+	opciones.Password.RequiredLength = 1;
+}).AddPasswordValidator<CustomPasswordValidator>();
 
 builder.Services.AddAuthentication(options =>
 {

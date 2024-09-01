@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7D9cJODh2dUn0WjuWFin/bFhtF8ydmEIzPcrNKWBwKc=",
+  "Hash": "yMc5GVPUzEtfhfRxZ4FU5CYTnylZtvoedcL7pNteMGw=",
   "Source": "SistemaSeguridad",
   "BasePath": "_content/SistemaSeguridad",
   "Mode": "Default",
@@ -1554,6 +1554,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\wwwroot\\Uploads\\test.cs",
+      "SourceId": "SistemaSeguridad",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\wwwroot\\",
+      "BasePath": "_content/SistemaSeguridad",
+      "RelativePath": "Uploads/test.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\test.cs"
     }
   ]
 }

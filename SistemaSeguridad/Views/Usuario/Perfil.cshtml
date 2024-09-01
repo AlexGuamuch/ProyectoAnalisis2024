@@ -8,15 +8,27 @@
 	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 	<div class="mb-3">
-		<label asp-for="IdUsuario" class="form-label"></label>
-		<input asp-for="IdUsuario" class="form-control" />
-		<span asp-validation-for="IdUsuario" class="text-danger"></span>
+	<label class="form-label">Fotografía</label>
+	@if (!string.IsNullOrEmpty(Model.Fotografia))
+	{
+		<img src="~/Uploads/@Model.Fotografia" alt="Fotografía de @Model.Nombre" class="img-thumbnail" style="max-width: 150px; max-height: 150px;" />
+	}
+	else
+	{
+		<img src="~/Uploads/default.jpeg" alt="Fotografía de @Model.Nombre" class="img-thumbnail" style="max-width: 150px; max-height: 150px;" />
+	}
 	</div>
 
 	<div class="mb-3">
-		<label asp-for="Nombre" class="form-label"></label>
-		<input asp-for="Nombre" class="form-control" />
-		<span asp-validation-for="Nombre" class="text-danger"></span>
+	<label asp-for="IdUsuario" class="form-label"></label>
+	<input asp-for="IdUsuario" class="form-control" />
+	<span asp-validation-for="IdUsuario" class="text-danger"></span>
+	</div>
+
+	<div class="mb-3">
+	<label asp-for="Nombre" class="form-label"></label>
+	<input asp-for="Nombre" class="form-control" />
+	<span asp-validation-for="Nombre" class="text-danger"></span>
 	</div>
 
 	<div class="mb-3">
@@ -25,11 +37,6 @@
 		<span asp-validation-for="CorreoElectronico" class="text-danger"></span>
 	</div>
 
-	<div class="mb-3">
-		<label asp-for="Password" class="form-label"></label>
-		<input asp-for="Password" class="form-control" />
-		<span asp-validation-for="Password" class="text-danger"></span>
-	</div>
-
 	<button class="btn btn-primary">Editar</button>
+	<a class="btn btn-primary" asp-controller="UsuarioPregunta" asp-action="Crear">Preguntas de Seguridad</a>
 </form>

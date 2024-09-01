@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
-    public class OpcionController: Controller
+    public class OpcionController : Controller
     {
         private readonly IRepositoryOpcion repositoryOpcion;
         private readonly IServicioUsuarios servicioUsuarios;
@@ -62,76 +63,98 @@ namespace SistemaSeguridad.Controllers
             return RedirectToAction("Index");
         }
 
-		[HttpGet]
-		public async Task<IActionResult> VerifarOpcion(string nombre)
-		{
-			var existeOpcion = await repositoryOpcion.Existe(nombre);
-			if (existeOpcion)
-			{
-				return Json($"El nombre {nombre} ya existe");
-			}
+        [HttpGet]
+        public async Task<IActionResult> VerifarOpcion(string nombre)
+        {
+            var existeOpcion = await repositoryOpcion.Existe(nombre);
+            if (existeOpcion)
+            {
+                return Json($"El nombre {nombre} ya existe");
+            }
 
-			return Json(true);
-		}
+            return Json(true);
+        }
 
-		public async Task<IActionResult> Borrar(int idOpcion)
-		{
-			var opcion = await repositoryOpcion.ObtenerPorId(idOpcion);
+        public async Task<IActionResult> Borrar(int idOpcion)
+        {
+            var opcion = await repositoryOpcion.ObtenerPorId(idOpcion);
 
-			if (opcion is null)
-			{
-				return RedirectToAction("Index", "Opcion");
-			}
-			return View(opcion);
-		}
+            if (opcion is null)
+            {
+                return RedirectToAction("Index", "Opcion");
+            }
+            return View(opcion);
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> BorrarOpcion(int idOpcion)
-		{
-			try
-			{
-				var opcion = await repositoryOpcion.ObtenerPorId(idOpcion);
-				if (opcion is null)
-				{
-					return RedirectToAction("Index", "Opcion");
-				}
-				await repositoryOpcion.Borrar(idOpcion);
-				return RedirectToAction("Index");
+        [HttpPost]
+        public async Task<IActionResult> BorrarOpcion(int idOpcion)
+        {
+            try
+            {
+                var opcion = await repositoryOpcion.ObtenerPorId(idOpcion);
+                if (opcion is null)
+                {
+                    return RedirectToAction("Index", "Opcion");
+                }
+                await repositoryOpcion.Borrar(idOpcion);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(ex + "No se puede borrar este registro");
+            }
+        }
 
-			}
-			catch (Exception ex)
-			{
-				throw new ApplicationException(ex + "No se puede borrar este registro");
-			}
-		}
+        [HttpGet]
+        public async Task<ActionResult> Editar(int idOpcion)
+        {
+            var opcion = await repositoryOpcion.ObtenerPorId(idOpcion);
 
-		[HttpGet]
-		public async Task<ActionResult> Editar(int idOpcion)
-		{
-			var opcion = await repositoryOpcion.ObtenerPorId(idOpcion);
+            if (opcion is null)
+            {
+                return RedirectToAction("Index", "Opcion");
+            }
 
-			if (opcion is null)
-			{
-				return RedirectToAction("Index", "Opcion");
-			}
+            return View(opcion);
+        }
 
-			return View(opcion);
-		}
+        [HttpPost]
+        public async Task<ActionResult> Editar(Opcion opcion)
+        {
+            opcion.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
+            var opcionExiste = await repositoryOpcion.ObtenerPorId(opcion.IdOpcion);
 
-		[HttpPost]
-		public async Task<ActionResult> Editar(Opcion opcion)
-		{
-			opcion.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
-			var opcionExiste = await repositoryOpcion.ObtenerPorId(opcion.IdOpcion);
+            if (opcionExiste is null)
+            {
+                return RedirectToAction("Index", "Opcion");
+            }
 
-			if (opcionExiste is null)
-			{
-				return RedirectToAction("Index", "Opcion");
-			}
+            await repositoryOpcion.ActualizarGeneral(opcion);
+            return RedirectToAction("Index");
+        }
 
-			await repositoryOpcion.ActualizarGeneral(opcion);
-			return RedirectToAction("Index");
-		}
+        // Método para exportar a CSV
+        [HttpGet]
+        public async Task<IActionResult> ExportarCsv()
+        {
+            var opciones = await repositoryOpcion.Obtener();
+            var sb = new StringBuilder();
 
-	}
+            // Cabecera del archivo CSV
+            sb.AppendLine("IdOpcion,Nombre");
+
+            // Contenido del CSV
+            foreach (var opcion in opciones)
+            {
+                sb.AppendLine($"{opcion.IdOpcion},{opcion.Nombre}");
+            }
+
+            // Convertir el contenido a bytes
+            var fileName = "Opciones.csv";
+            var fileContent = Encoding.UTF8.GetBytes(sb.ToString());
+
+            // Retornar el archivo CSV
+            return File(fileContent, "text/csv", fileName);
+        }
+    }
 }

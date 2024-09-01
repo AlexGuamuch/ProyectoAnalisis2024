@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
+using System.Text;
 
 namespace SistemaSeguridad.Controllers
 {
-    public class MenuController: Controller
+    public class MenuController : Controller
     {
         private readonly IRepositoryMenu repositoryMenu;
         private readonly IServicioUsuarios servicioUsuarios;
@@ -19,7 +20,7 @@ namespace SistemaSeguridad.Controllers
             this.repositoryModulo = repositoryModulo;
         }
 
-        public async Task<IActionResult> Index() 
+        public async Task<IActionResult> Index()
         {
             var menu = await repositoryMenu.Obtener();
             return View(menu);
@@ -74,63 +75,80 @@ namespace SistemaSeguridad.Controllers
             return Json(true);
         }
 
-		public async Task<IActionResult> Borrar(int idMenu)
-		{
-			var menu = await repositoryMenu.ObtenerPorId(idMenu);
+        public async Task<IActionResult> Borrar(int idMenu)
+        {
+            var menu = await repositoryMenu.ObtenerPorId(idMenu);
 
-			if (menu is null)
-			{
-				return RedirectToAction("Index", "Menu");
-			}
-			return View(menu);
-		}
+            if (menu is null)
+            {
+                return RedirectToAction("Index", "Menu");
+            }
+            return View(menu);
+        }
 
-		[HttpPost]
-		public async Task<IActionResult> BorrarMenu(int idMenu)
-		{
-			try
-			{
-				var menu = await repositoryMenu.ObtenerPorId(idMenu);
-				if (menu is null)
-				{
-					return RedirectToAction("Index", "Menu");
-				}
-				await repositoryMenu.Borrar(idMenu);
-				return RedirectToAction("Index");
+        [HttpPost]
+        public async Task<IActionResult> BorrarMenu(int idMenu)
+        {
+            try
+            {
+                var menu = await repositoryMenu.ObtenerPorId(idMenu);
+                if (menu is null)
+                {
+                    return RedirectToAction("Index", "Menu");
+                }
+                await repositoryMenu.Borrar(idMenu);
+                return RedirectToAction("Index");
 
-			}
-			catch (Exception ex)
-			{
-				throw new ApplicationException(ex + "No se puede borrar este registro");
-			}
-		}
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(ex + "No se puede borrar este registro");
+            }
+        }
 
-		[HttpGet]
-		public async Task<ActionResult> Editar(int idMenu)
-		{
-			var menu = await repositoryMenu.ObtenerPorId(idMenu);
+        [HttpGet]
+        public async Task<ActionResult> Editar(int idMenu)
+        {
+            var menu = await repositoryMenu.ObtenerPorId(idMenu);
 
-			if (menu is null)
-			{
-				return RedirectToAction("Index", "Menu");
-			}
+            if (menu is null)
+            {
+                return RedirectToAction("Index", "Menu");
+            }
 
-			return View(menu);
-		}
+            return View(menu);
+        }
 
-		[HttpPost]
-		public async Task<ActionResult> Editar(Menu menu)
-		{
-			menu.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
-			var menuExiste = await repositoryMenu.ObtenerPorId(menu.IdMenu);
+        [HttpPost]
+        public async Task<ActionResult> Editar(Menu menu)
+        {
+            menu.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
+            var menuExiste = await repositoryMenu.ObtenerPorId(menu.IdMenu);
 
-			if (menu is null)
-			{
-				return RedirectToAction("Index", "Menu");
-			}
+            if (menu is null)
+            {
+                return RedirectToAction("Index", "Menu");
+            }
 
-			await repositoryMenu.ActualizarGeneral(menu);
-			return RedirectToAction("Index");
-		}
-	}
+            await repositoryMenu.ActualizarGeneral(menu);
+            return RedirectToAction("Index");
+        }
+
+        // función para exportar a CSV
+        [HttpGet]
+        public async Task<IActionResult> ExportarCSV()
+        {
+            var menus = await repositoryMenu.Obtener();
+
+            var builder = new StringBuilder();
+            builder.AppendLine("IdMenu,Nombre");
+
+            foreach (var menu in menus)
+            {
+                builder.AppendLine($"{menu.IdMenu},{menu.Nombre}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "Menus.csv");
+        }
+    }
 }

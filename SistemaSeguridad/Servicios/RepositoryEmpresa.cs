@@ -11,6 +11,7 @@ namespace SistemaSeguridad.Servicios
         Task Crear(Empresa empresa);
 		Task<bool> Existe(string nombre);
 		Task<IEnumerable<Empresa>> Obtener();
+		Task<Empresa> ObtenerPasswordRules();
 		Task<Empresa> ObtenerPorId(int idEmpresa);
 	}
 	public class RepositoryEmpresa: IRepositoyEmpresa
@@ -83,5 +84,12 @@ namespace SistemaSeguridad.Servicios
 											FechaModificacion = GETDATE(), UsuarioModificacion = @UsuarioModificacion
 											where IdEmpresa = @IdEmpresa", empresa);
         }
-    }
+
+		public async Task<Empresa> ObtenerPasswordRules()
+		{
+			using var connection = new SqlConnection(connectionString);
+			var query = "select PasswordLargo, PasswordCantidadMayusculas, PasswordCantidadMinusculas, PasswordCantidadNumeros, PasswordCantidadCaracteresEspeciales from EMPRESA where IdEmpresa = 1;";
+			return await connection.QuerySingleOrDefaultAsync<Empresa>(query);
+		}
+	}
 }

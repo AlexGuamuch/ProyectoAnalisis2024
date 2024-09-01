@@ -25,5 +25,8 @@ namespace SistemaSeguridad.Models
 		public string UsuarioCreacion { get; set; }
         public int IdGenero { get; set; }
 		public int IdSucursal { get; set; }
+		
+		[Display(Name = "Fotografía")]
+		public IFormFile Fotografia { get; set; }
 	}
 }

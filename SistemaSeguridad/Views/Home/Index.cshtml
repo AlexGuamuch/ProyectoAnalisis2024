@@ -1,8 +1,131 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewBag.Title = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            padding-top: 20px;
+            overflow-y: auto;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .nav-link {
+            color: #000;
+        }
+
+            .nav-link:hover {
+                background-color: #f0f0f0;
+            }
+
+        .dropdown-menu {
+            display: none;
+        }
+
+            .dropdown-menu.show {
+                display: block;
+            }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Barra lateral -->
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <!-- Dropdown de Sistema de Seguridad -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSistemaSeguridad" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sistema de Seguridad
+                    </a>
+                    <div class="dropdown-menu nested-dropdown-menu" aria-labelledby="navbarDropdownSistemaSeguridad">
+                        <!-- Dropdown de Parámetros Generales -->
+                        <div class="dropdown">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdownParametros" role="button">
+                                Parámetros Generales
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownParametros">
+                                <a class="dropdown-item" href="@Url.Action("Index", "Empresa")">Empresas</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Genero")">Géneros</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Sucursal")">Sucursales</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "StatusUsuario")">Status Usuario</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Role")">Roles</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Opcion")">Opciones</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Menu")">Menú</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Modulo")">Modulos</a>
+                            </div>
+                        </div>
+
+                        <!-- Dropdown de Acciones -->
+                        <div class="dropdown">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdownAcciones" role="button">
+                                Acciones
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownAcciones">
+                                <a class="dropdown-item" href="@Url.Action("Index", "Usuario")">Usuarios</a>
+                            </div>
+                        </div>
+
+                        <!-- Dropdown de Estadísticas -->
+                        <div class="dropdown">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdownEstadisticas" role="button">
+                                Estadísticas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownEstadisticas">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <div class="content">
+            <h1>Bienvenido al Sistema</h1>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Controla la apertura y cierre de cada dropdown de manera independiente
+            $('.dropdown-toggle').on('click', function (e) {
+                e.stopPropagation(); // Previene la propagación del clic
+                var $el = $(this).next('.dropdown-menu');
+
+                // Alterna el estado del menú clicado y cierra otros en la misma jerarquía
+                if ($el.hasClass('show')) {
+                    $el.removeClass('show');
+                } else {
+                    // Cierra solo dropdowns hermanos, no los hijos
+                    $(this).closest('.dropdown-menu').find('.dropdown-menu').removeClass('show');
+                    $el.addClass('show');
+                }
+            });
+
+            // Cierra todos los dropdowns cuando se hace clic fuera de ellos
+            $(document).on('click', function () {
+                $('.dropdown-menu').removeClass('show');
+            });
+        });
+    </script>
+</body>
+</html>
