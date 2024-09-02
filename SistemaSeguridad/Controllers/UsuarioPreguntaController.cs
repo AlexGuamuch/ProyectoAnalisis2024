@@ -11,13 +11,13 @@ namespace SistemaSeguridad.Controllers
     public class UsuarioPreguntaController : Controller
     {
         private readonly UserManager<UsuarioPrueba> _userManager;
-        private readonly IRepositoryUsuarioPregunta repositoryUsuarioPregunta;
-        private readonly UsuarioPreguntaRepository _usuarioPreguntaRepository;
+       // private readonly IRepositoryUsuarioPregunta repositoryUsuarioPregunta;
+        private readonly IRepositoryUsuarioPregunta _usuarioPreguntaRepository;
 
-        public UsuarioPreguntaController(UserManager<UsuarioPrueba> userManager, IRepositoryUsuarioPregunta repositoryUsuarioPregunta)
+        public UsuarioPreguntaController(UserManager<UsuarioPrueba> userManager, IRepositoryUsuarioPregunta usuarioPreguntaRepository)
         {
             _userManager = userManager;
-            this.repositoryUsuarioPregunta = repositoryUsuarioPregunta;
+            _usuarioPreguntaRepository = usuarioPreguntaRepository;
             
         }
 
@@ -39,6 +39,13 @@ namespace SistemaSeguridad.Controllers
             if (usuarioLogin == null)
             {
                 return RedirectToAction("Login", "UsuarioLogin");
+            }
+
+            var preguntasUsuario = await _usuarioPreguntaRepository.ObtenerPorUsuario(usuarioLogin.IdUsuario);
+            if (preguntasUsuario.Count >= 4)
+            {
+				ViewBag.Message  = "Ya has ingresado las 4 preguntas de seguridad.";
+                return View("UsuarioPregunta", new UsuarioPregunta { IdUsuario = usuarioLogin.IdUsuario });
             }
 
             if (ModelState.IsValid)
@@ -82,8 +89,13 @@ namespace SistemaSeguridad.Controllers
                         UsuarioCreacion = usuarioLogin.IdUsuario
                     }
                 };
+                // Verifica que el repositorio no sea null
+                if (_usuarioPreguntaRepository == null)
+                {
+                    throw new InvalidOperationException("El repositorio de preguntas de usuario no ha sido inicializado.");
+                }
 
-               
+
                 foreach (var pregunta in preguntas)
                 {
                     await _usuarioPreguntaRepository.Crear(pregunta);
