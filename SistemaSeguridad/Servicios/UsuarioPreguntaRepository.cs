@@ -7,7 +7,8 @@ namespace SistemaSeguridad.Servicios
 	public interface IRepositoryUsuarioPregunta
 	{
 		Task Crear(UsuarioPregunta pregunta);
-	}
+        Task<List<UsuarioPregunta>> ObtenerPorUsuario(string idUsuario);
+    }
 	public class UsuarioPreguntaRepository : IRepositoryUsuarioPregunta
 	{
 		private readonly string connectionString;
@@ -37,5 +38,14 @@ namespace SistemaSeguridad.Servicios
 															 commandType: System.Data.CommandType.StoredProcedure);
 			pregunta.IdPregunta = id;
 		}
+
+		public async Task<List<UsuarioPregunta>> ObtenerPorUsuario(string idUsuario)
+{
+    using var connection = new SqlConnection(connectionString);
+    var preguntas = await connection.QueryAsync<UsuarioPregunta>("spusuario_pregunta_obtener_por_usuario",
+                                                                new { IdUsuario = idUsuario },
+                                                                commandType: System.Data.CommandType.StoredProcedure);
+    return preguntas.ToList();
+}
 	}
 }
