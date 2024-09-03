@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\servicios\\repositoryusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\servicios\\repositoryusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\views\\usuariopregunta\\usuariopregunta.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\views\\usuariopregunta\\usuariopregunta.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\servicios\\repositorymenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\servicios\\repositorymenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\sistemaseguridad\\sistemaseguridad\\controllers\\usuariopreguntacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\controllers\\usuariopreguntacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MenuController.cs",
-              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\MenuController.cs",
-              "RelativeDocumentMoniker": "SistemaSeguridad\\Controllers\\MenuController.cs",
-              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\MenuController.cs",
-              "RelativeToolTip": "SistemaSeguridad\\Controllers\\MenuController.cs",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAmwE0AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T00:36:31.128Z",
+              "DocumentIndex": 0,
+              "Title": "UsuarioPregunta.cshtml",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Views\\UsuarioPregunta\\UsuarioPregunta.cshtml",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\Views\\UsuarioPregunta\\UsuarioPregunta.cshtml",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Views\\UsuarioPregunta\\UsuarioPregunta.cshtml",
+              "RelativeToolTip": "SistemaSeguridad\\Views\\UsuarioPregunta\\UsuarioPregunta.cshtml",
+              "ViewState": "AQIAADwAAAAAAAAAAAAUwEEAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-03T01:21:34.813Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "SistemaSeguridad\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "SistemaSeguridad\\Controllers\\UsuarioController.cs",
-              "ViewState": "AQIAAIwAAAAAAAAAAAAAwIQAAAAAAAAA",
+              "Title": "UsuarioPreguntaController.cs",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\UsuarioPreguntaController.cs",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\Controllers\\UsuarioPreguntaController.cs",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Controllers\\UsuarioPreguntaController.cs",
+              "RelativeToolTip": "SistemaSeguridad\\Controllers\\UsuarioPreguntaController.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAcwGAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T00:36:03.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RepositoryMenu.cs",
-              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Servicios\\RepositoryMenu.cs",
-              "RelativeDocumentMoniker": "SistemaSeguridad\\Servicios\\RepositoryMenu.cs",
-              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Servicios\\RepositoryMenu.cs",
-              "RelativeToolTip": "SistemaSeguridad\\Servicios\\RepositoryMenu.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAswDQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T00:34:26.854Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RepositoryUsuarios.cs",
-              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Servicios\\RepositoryUsuarios.cs",
-              "RelativeDocumentMoniker": "SistemaSeguridad\\Servicios\\RepositoryUsuarios.cs",
-              "ToolTip": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\Servicios\\RepositoryUsuarios.cs",
-              "RelativeToolTip": "SistemaSeguridad\\Servicios\\RepositoryUsuarios.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAywEIAAABOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T00:34:20.072Z",
+              "WhenOpened": "2024-09-03T01:20:13.97Z",
               "EditorCaption": ""
             }
           ]
