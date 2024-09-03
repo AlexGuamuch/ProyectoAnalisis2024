@@ -11,6 +11,7 @@
         body {
             /*background-color: #2c3e50;*/
         }
+
         .sidebar {
             width: 250px;
             height: 100vh;
@@ -49,6 +50,9 @@
     <div class="d-flex">
         <!-- Barra lateral -->
         <nav class="sidebar">
+            <!-- Imagen del sistema -->
+            <img src="~/Logotipo.png" alt="SistemaSeguridad" class="img-fluid mb-3" />
+
             <ul class="nav flex-column">
                 <!-- Dropdown de Sistema de Seguridad -->
                 <li class="nav-item dropdown">
@@ -67,7 +71,7 @@
                                 <a class="dropdown-item" href="@Url.Action("Index", "Sucursal")">Sucursales</a>
                                 <a class="dropdown-item" href="@Url.Action("Index", "StatusUsuario")">Status Usuario</a>
                                 <a class="dropdown-item" href="@Url.Action("Index", "Role")">Roles</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "UsuarioRole")">Roles Ususario</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "UsuarioRole")">Roles Usuario</a>
                                 <a class="dropdown-item" href="@Url.Action("Index", "Opcion")">Opciones</a>
                                 <a class="dropdown-item" href="@Url.Action("Index", "Menu")">Menú</a>
                                 <a class="dropdown-item" href="@Url.Action("Index", "Modulo")">Modulos</a>
@@ -90,10 +94,8 @@
                                 Estadísticas
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownEstadisticas">
-                                
                             </div>
                         </div>
-
                     </div>
                 </li>
             </ul>
@@ -134,3 +136,4 @@
     </script>
 </body>
 </html>
+
