@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\SistemaSeguridad.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\wwwroot\\Logotipo.png",
+      "PackagePath": "staticwebassets\\Logotipo.png"
+    },
+    {
       "Id": "C:\\Users\\guamu\\source\\repos\\SistemaSeguridad\\SistemaSeguridad\\wwwroot\\Uploads\\test.cs",
       "PackagePath": "staticwebassets\\Uploads\\test.cs"
     },

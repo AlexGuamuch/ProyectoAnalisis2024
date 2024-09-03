@@ -6,10 +6,12 @@ namespace SistemaSeguridad.Servicios
 {
 	public interface IRepositoryUsuarios
 	{
-		Task<UsuarioPrueba> BuscarUsuarioEmail(string CorreoElectronico);
+        Task Borrar(string idUsuario);
+        Task<UsuarioPrueba> BuscarUsuarioEmail(string CorreoElectronico);
 		Task<UsuarioPrueba> BuscarUsuarioNombre(string Nombre);
 		Task<string> CrearUsuario(UsuarioPrueba usuarioPrueba);
-		Task<IEnumerable<UsuarioPrueba>> Obtener();
+        Task<bool> Existe(string IdUsuario);
+        Task<IEnumerable<UsuarioPrueba>> Obtener();
 	}
 	public class RepositoryUsuarios: IRepositoryUsuarios
 	{
@@ -48,7 +50,21 @@ namespace SistemaSeguridad.Servicios
 		public async Task<IEnumerable<UsuarioPrueba>> Obtener()
 		{
 			using var connection = new SqlConnection(connectionString);
-			return await connection.QueryAsync<UsuarioPrueba>(@"select IdUsuario, Nombre from USUARIO");
+			return await connection.QueryAsync<UsuarioPrueba>(@"select IdUsuario, Nombre, Apellido, FechaNacimiento, CorreoElectronico from USUARIO");
 		}
-	}
+
+        public async Task<bool> Existe(string IdUsuario)
+        {
+            using var connection = new SqlConnection(connectionString);
+            var existe = await connection.QueryFirstOrDefaultAsync<int>(@"select 1 from USUARIO where IdUsuario = @IdUsuario;",
+                                                                        new { IdUsuario });
+            return existe == 1;
+        }
+
+        public async Task Borrar(string idUsuario)
+        {
+            using var connection = new SqlConnection(connectionString);
+            await connection.ExecuteAsync("delete from USUARIO where IdUsuario = @IdUsuario", new { idUsuario });
+        }
+    }
 }

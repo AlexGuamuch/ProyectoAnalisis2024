@@ -20,8 +20,8 @@ namespace SistemaSeguridad.Servicios
 		{
 			using var connection = new SqlConnection(connectionString);
 			var id = await connection.QuerySingleAsync<int>(@"insert into
-															BITACORA_ACCESO(IdUsuario,IdTipoAcceso,FechaAcceso,HttpUserAgent,DireccionIp)
-															values(@IdUsuario,1,GETDATE(),@HttpUserAgent,@DireccionIp);
+															BITACORA_ACCESO(IdUsuario,IdTipoAcceso,FechaAcceso,HttpUserAgent,DireccionIp,Accion,SistemaOperativo,Dispositivo,Browser)
+															values(@IdUsuario,1,GETDATE(),@HttpUserAgent,@DireccionIp,@Accion,@SistemaOperativo,@Dispositivo,@Browser);
 															select SCOPE_IDENTITY();", bitacora);
 			bitacora.IdTipoAcceso = id;
 		}

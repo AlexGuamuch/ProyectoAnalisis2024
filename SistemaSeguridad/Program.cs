@@ -21,6 +21,7 @@ builder.Services.AddTransient<IRepositoryStatusUsuario, RepositoryStatusUsuario>
 builder.Services.AddTransient<IRepositoryRole, RepositoryRole>();
 builder.Services.AddTransient<IRepositoryOpcion, RepositoryOpcion>();
 builder.Services.AddTransient<IRepositoryModulo, RepositoryModulo>();
+builder.Services.AddTransient<IRepositoryUsuarioRole, RepositoryUsuarioRole>();
 builder.Services.AddTransient<IRepositoryBitacoraAcceso, RepositoryBitacoraAcceso>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<IReposirorySucursal, RepositorySucursal>();

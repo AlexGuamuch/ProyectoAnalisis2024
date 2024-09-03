@@ -21,12 +21,12 @@ namespace SistemaSeguridad.Controllers
 		private readonly SignInManager<UsuarioPrueba> signInManager;
 		private readonly IRepositoryGenero repositoryGenero;
 		private readonly IReposirorySucursal reposirorySucursal;
-		private readonly RepositoryUsuarios repositoryUsuarios;
 		private readonly IWebHostEnvironment webHostEnvironment;
+		private readonly IRepositoryUsuarios repositoryUsuarios;
 
-        public UsuarioController(UserManager<UsuarioPrueba> userManager, IServicioUsuarios servicioUsuarios,
+		public UsuarioController(UserManager<UsuarioPrueba> userManager, IServicioUsuarios servicioUsuarios,
 			SignInManager<UsuarioPrueba> signInManager, IRepositoryGenero repositoryGenero, IReposirorySucursal reposirorySucursal, 
-   			IWebHostEnvironment webHostEnvironment)
+   			IWebHostEnvironment webHostEnvironment, IRepositoryUsuarios repositoryUsuarios)
         {
 			this.userManager = userManager;
 			this.servicioUsuarios = servicioUsuarios;
@@ -34,14 +34,20 @@ namespace SistemaSeguridad.Controllers
 			this.repositoryGenero = repositoryGenero;
 			this.reposirorySucursal = reposirorySucursal;
    			this.webHostEnvironment = webHostEnvironment;
+			this.repositoryUsuarios = repositoryUsuarios;
 		}
 
-		public IActionResult Index()
+		/*public IActionResult Index()
 		{
             return View();
-        }
+        }*/
+		public async Task<IActionResult> Index()
+		{
+			var usuarios = await repositoryUsuarios.Obtener();
+			return View(usuarios);
+		}
 
-        private async Task<IEnumerable<SelectListItem>> ObtenerGenero()
+		private async Task<IEnumerable<SelectListItem>> ObtenerGenero()
         {
             var modulo = await repositoryGenero.Obtener();
             return modulo.Select(x => new SelectListItem(x.Nombre, x.IdGenero.ToString()));
@@ -113,8 +119,51 @@ namespace SistemaSeguridad.Controllers
 			return View(modelo);
 		}
 
+        [HttpGet]
+        public async Task<IActionResult> VerifarUsuario(string idUsuario)
+        {
+            var existeGenero = await repositoryUsuarios.Existe(idUsuario);
+            if (existeGenero)
+            {
+                return Json($"El nombre {idUsuario} ya existe");
+            }
 
-		[HttpPost]
+            return Json(true);
+        }
+
+        public async Task<IActionResult> Borrar(string idUsuario)
+        {
+            var usuario = await repositoryUsuarios.BuscarUsuarioNombre(idUsuario);
+
+            if (usuario is null)
+            {
+                return RedirectToAction("Index", "Usuario");
+            }
+            return View(usuario);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> BorrarUsuario(string idUsuario)
+        {
+            try
+            {
+                var usuario = await repositoryUsuarios.BuscarUsuarioNombre(idUsuario);
+                if (usuario is null)
+                {
+                    return RedirectToAction("Index", "Usuario");
+                }
+                await repositoryUsuarios.Borrar(idUsuario);
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(ex + "No se puede borrar este registro");
+            }
+        }
+
+
+        [HttpPost]
 		public async Task<IActionResult> Logout() 
 		{
 			await HttpContext.SignOutAsync(IdentityConstants.ApplicationScheme);

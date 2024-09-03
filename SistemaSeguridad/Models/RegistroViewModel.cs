@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace SistemaSeguridad.Models
@@ -6,7 +7,8 @@ namespace SistemaSeguridad.Models
 	public class RegistroViewModel
 	{
 		[Required(ErrorMessage = "El campo {0} es requerido")]
-		public string IdUsuario { get; set; }
+        [Remote(action: "VerifarUsuario", controller: "Usuario")]
+        public string IdUsuario { get; set; }
 		[Required(ErrorMessage = "El campo {0} es requerido")]
 		public string Nombre { get; set; }
 		[Required(ErrorMessage = "El campo {0} es requerido")]

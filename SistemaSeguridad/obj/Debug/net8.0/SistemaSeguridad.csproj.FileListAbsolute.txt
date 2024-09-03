@@ -529,3 +529,8 @@ C:\Users\guamu\Desktop\ProyectoAnalisis2024-main\SistemaSeguridad\obj\Debug\net8
 C:\Users\guamu\Desktop\ProyectoAnalisis2024-main\SistemaSeguridad\obj\Debug\net8.0\SistemaSeguridad.pdb
 C:\Users\guamu\Desktop\ProyectoAnalisis2024-main\SistemaSeguridad\obj\Debug\net8.0\SistemaSeguridad.genruntimeconfig.cache
 C:\Users\guamu\Desktop\ProyectoAnalisis2024-main\SistemaSeguridad\obj\Debug\net8.0\ref\SistemaSeguridad.dll
+C:\Users\guamu\source\repos\SistemaSeguridad\SistemaSeguridad\bin\Debug\net8.0\DeviceDetector.NET.dll
+C:\Users\guamu\source\repos\SistemaSeguridad\SistemaSeguridad\bin\Debug\net8.0\LiteDB.dll
+C:\Users\guamu\source\repos\SistemaSeguridad\SistemaSeguridad\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\guamu\source\repos\SistemaSeguridad\SistemaSeguridad\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\guamu\source\repos\SistemaSeguridad\SistemaSeguridad\bin\Debug\net8.0\YamlDotNet.dll

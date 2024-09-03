@@ -2,7 +2,7 @@
 {
 	public class UsuarioRole
 	{
-		public int IdUsuario { get; set; }
+		public string IdUsuario { get; set; }
 		public int IdRole { get; set; }
 		public DateTime FechaCreacion { get; set; }
         public string UsuarioCreacion { get; set; }

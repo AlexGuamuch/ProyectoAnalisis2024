@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[2.1.35, )"
             },
+            "DeviceDetector.NET": {
+              "target": "Package",
+              "version": "[6.3.3, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
