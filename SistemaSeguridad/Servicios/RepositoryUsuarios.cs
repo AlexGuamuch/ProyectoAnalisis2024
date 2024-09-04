@@ -66,5 +66,25 @@ namespace SistemaSeguridad.Servicios
             using var connection = new SqlConnection(connectionString);
             await connection.ExecuteAsync("delete from USUARIO where IdUsuario = @IdUsuario", new { idUsuario });
         }
+
+ 	public async Task<UsuarioPrueba> ObtenerPorId( string IdUsuario) //Servicio para selccionar los datos a editar del usuario 
+{
+	using var connection = new SqlConnection(connectionString);
+	return await connection.QueryFirstOrDefaultAsync<UsuarioPrueba>(
+        @"SELECT Nombre, Apellido, FechaNacimiento, CorreoElectronico, TelefonoMovil, Password
+			FROM Usuario 
+			WHERE IdUsuario = @IdUsuario", new { IdUsuario }
+		);
+}
+
+	public async Task Actualizar(UsuarioPrueba usuario)
+{
+	using var connection = new SqlConnection(connectionString);
+	await connection.ExecuteAsync(@"UPDATE Usuario 
+										SET Nombre = @Nombre, Apellido = @Apellido, FechaNacimiento = @FechaNacimiento 
+										CorreoElectronico = @CorreoElectronico, TelefonoMovil = @TelefonoMovil, Password = @Password
+										WHERE Idusuario = @IdUsuario", usuario
+										);
+}
     }
 }
