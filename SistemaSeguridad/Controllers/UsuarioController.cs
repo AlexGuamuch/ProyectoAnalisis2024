@@ -198,5 +198,43 @@ namespace SistemaSeguridad.Controllers
 
             return View(model);
         }
+
+ [HttpGet]
+
+public async Task<IActionResult> Editar() //controlador editar 
+{
+	var IdUsuario = servicioUsuarios.ObtenerUsuarioId();
+	var usuario = await repositoryUsuarios.ObtenerPorId(IdUsuario);
+
+	if(usuario == null)
+	{
+		return RedirectToAction("Index", "Home"); 
+	}
+	var modelo = new UsuarioPrueba()
+	{
+		IdUsuario = usuario.IdUsuario,
+		Nombre = usuario.Nombre,
+		Apellido = usuario.Apellido,
+		FechaNacimiento = usuario.FechaNacimiento,
+		CorreoElectronico = usuario.CorreoElectronico,
+		TelefonoMovil = usuario.TelefonoMovil
+	};
+	return View(modelo);
+}
+
+[HttpPost]
+public async Task<IActionResult> EditarUsuario(UsuarioPrueba usuarioEditar) //controlador editar
+{
+	var IdUsuario = servicioUsuarios.ObtenerUsuarioId();
+	var usuario = await repositoryUsuarios.ObtenerPorId(IdUsuario);
+
+	if (usuario == null)
+	{
+		return RedirectToAction("Index", "Home");
+	}
+
+	await repositoryUsuarios.Actualizar(usuario);
+	return RedirectToAction("Index");
+}
     }
 }
