@@ -13,6 +13,7 @@ namespace SistemaSeguridad.Servicios
 		Task<string> CrearUsuario(UsuarioPrueba usuarioPrueba);
         	Task<bool> Existe(string IdUsuario);
         	Task<IEnumerable<UsuarioPrueba>> Obtener();
+		Task<UsuarioPrueba> ObtenerPorId(string IdUsuario);
 	}
 	public class RepositoryUsuarios: IRepositoryUsuarios
 	{
