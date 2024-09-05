@@ -68,23 +68,23 @@ namespace SistemaSeguridad.Servicios
         }
 
  	public async Task<UsuarioPrueba> ObtenerPorId( string IdUsuario) //Servicio para selccionar los datos a editar del usuario 
-{
+	{
 	using var connection = new SqlConnection(connectionString);
 	return await connection.QueryFirstOrDefaultAsync<UsuarioPrueba>(
-        @"SELECT Nombre, Apellido, FechaNacimiento, CorreoElectronico, TelefonoMovil, Password
+        @"SELECT Nombre, Apellido, FechaNacimiento, CorreoElectronico, TelefonoMovil
 			FROM Usuario 
 			WHERE IdUsuario = @IdUsuario", new { IdUsuario }
 		);
-}
+	}
 
 	public async Task Actualizar(UsuarioPrueba usuario)
-{
+	{
 	using var connection = new SqlConnection(connectionString);
 	await connection.ExecuteAsync(@"UPDATE Usuario 
-										SET Nombre = @Nombre, Apellido = @Apellido, FechaNacimiento = @FechaNacimiento 
-										CorreoElectronico = @CorreoElectronico, TelefonoMovil = @TelefonoMovil, Password = @Password
-										WHERE Idusuario = @IdUsuario", usuario
+										SET Nombre = @Nombre, Apellido = @Apellido, FechaNacimiento = @FechaNacimiento, 
+										CorreoElectronico = @CorreoElectronico, TelefonoMovil = @TelefonoMovil
+										WHERE IdUsuario = @IdUsuario", usuario
 										);
-}
+	}
     }
 }
