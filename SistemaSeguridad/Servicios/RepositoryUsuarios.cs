@@ -6,12 +6,13 @@ namespace SistemaSeguridad.Servicios
 {
 	public interface IRepositoryUsuarios
 	{
-        Task Borrar(string idUsuario);
-        Task<UsuarioPrueba> BuscarUsuarioEmail(string CorreoElectronico);
+		Task Actualizar(UsuarioPrueba usuario);
+        	Task Borrar(string idUsuario);
+        	Task<UsuarioPrueba> BuscarUsuarioEmail(string CorreoElectronico);
 		Task<UsuarioPrueba> BuscarUsuarioNombre(string Nombre);
 		Task<string> CrearUsuario(UsuarioPrueba usuarioPrueba);
-        Task<bool> Existe(string IdUsuario);
-        Task<IEnumerable<UsuarioPrueba>> Obtener();
+        	Task<bool> Existe(string IdUsuario);
+        	Task<IEnumerable<UsuarioPrueba>> Obtener();
 	}
 	public class RepositoryUsuarios: IRepositoryUsuarios
 	{
