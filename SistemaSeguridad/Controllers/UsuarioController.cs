@@ -199,8 +199,7 @@ namespace SistemaSeguridad.Controllers
             return View(model);
         }
 
- [HttpGet]
-
+[HttpGet]
 public async Task<IActionResult> Editar() //controlador editar 
 {
 	var IdUsuario = servicioUsuarios.ObtenerUsuarioId();
@@ -226,15 +225,13 @@ public async Task<IActionResult> Editar() //controlador editar
 public async Task<IActionResult> EditarUsuario(UsuarioPrueba usuarioEditar) //controlador editar
 {
 	var IdUsuario = servicioUsuarios.ObtenerUsuarioId();
-	var usuario = await repositoryUsuarios.ObtenerPorId(IdUsuario);
+	usuarioEditar.IdUsuario = IdUsuario;  // Asegúrate de asignar IdUsuario
 
-	if (usuario == null)
-	{
-		return RedirectToAction("Index", "Home");
-	}
+	await repositoryUsuarios.Actualizar(usuarioEditar);
 
-	await repositoryUsuarios.Actualizar(usuario);
-	return RedirectToAction("Index");
+	TempData["MensajeExito"] = "Usuario actualizado correctamente";
+
+	return RedirectToAction("Perfil");
 }
     }
 }
