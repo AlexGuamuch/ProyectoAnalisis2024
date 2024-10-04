@@ -88,5 +88,12 @@ namespace SistemaSeguridad.Servicios
 										WHERE IdUsuario = @IdUsuario", usuario
 										);
 	}
+
+ 	public async Task<UsuarioPrueba> BuscarUsuario(string nombre)
+	{
+	using var connection = new SqlConnection(connectionString);
+	string query = "SELECT * FROM USUARIO WHERE Nombre = @Nombre";
+	return await connection.QuerySingleOrDefaultAsync<UsuarioPrueba>(query, new { Nombre = nombre });
+	}
     }
 }
