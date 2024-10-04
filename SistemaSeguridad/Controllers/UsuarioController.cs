@@ -41,9 +41,23 @@ namespace SistemaSeguridad.Controllers
 		{
             return View();
         }*/
-		public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index(string buscar = null)
 		{
 			var usuarios = await repositoryUsuarios.Obtener();
+
+			if (!string.IsNullOrWhiteSpace(buscar))
+			{
+			var usuario = await repositoryUsuarios.BuscarUsuario(buscar);
+			if (usuario != null)
+			{
+			usuarios = new List<UsuarioPrueba> { usuario };
+			}
+			else
+			{
+			ModelState.AddModelError(string.Empty, "No se encontró ningún usuario con ese nombre.");
+		}
+	}
+      
 			return View(usuarios);
 		}
 
