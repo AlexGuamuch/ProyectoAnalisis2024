@@ -1,0 +1,48 @@
+﻿@model SistemaSeguridad.Models.Persona
+
+<h2>Editar Persona</h2>
+
+<form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="IdPersona" />
+    <div>
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" />
+        <span asp-validation-for="Nombre"></span>
+    </div>
+    <div>
+        <label asp-for="Apellido"></label>
+        <input asp-for="Apellido" />
+        <span asp-validation-for="Apellido"></span>
+    </div>
+    <div>
+        <label asp-for="FechaNacimiento"></label>
+        <input asp-for="FechaNacimiento" type="date" />
+        <span asp-validation-for="FechaNacimiento"></span>
+    </div>
+    <div>
+        <label asp-for="IdGenero"></label>
+        <select asp-for="IdGenero" asp-items="ViewBag.Generos"></select>
+    </div>
+    <div>
+        <label asp-for="Direccion"></label>
+        <input asp-for="Direccion" />
+        <span asp-validation-for="Direccion"></span>
+    </div>
+    <div>
+        <label asp-for="Telefono"></label>
+        <input asp-for="Telefono" />
+        <span asp-validation-for="Telefono"></span>
+    </div>
+    <div>
+        <label asp-for="CorreoElectronico"></label>
+        <input asp-for="CorreoElectronico" />
+        <span asp-validation-for="CorreoElectronico"></span>
+    </div>
+    <div>
+        <label asp-for="IdEstadoCivil"></label>
+        <select asp-for="IdEstadoCivil" asp-items="ViewBag.EstadosCiviles"></select>
+    </div>
+    <div>
+        <button type="submit">Guardar</button>
+    </div>
+</form>

@@ -1,0 +1,46 @@
+﻿@model MovimientoCuentum
+
+@{
+    ViewData["Title"] = "Borrar Movimiento";
+}
+
+<h1>¿Está seguro de que desea eliminar este movimiento?</h1>
+
+<div>
+    <h4>Movimiento Cuenta</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Id Movimiento</dt>
+        <dd class="col-sm-10">@Model.IdMovimientoCuenta</dd>
+
+        <dt class="col-sm-2">Id Saldo Cuenta</dt>
+        <dd class="col-sm-10">@Model.IdSaldoCuenta</dd>
+
+        <dt class="col-sm-2">Tipo Movimiento</dt>
+        <dd class="col-sm-10">@Model.IdTipoMovimientoCxc</dd>
+
+        <dt class="col-sm-2">Fecha Movimiento</dt>
+        <dd class="col-sm-10">@Model.FechaMovimiento.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Valor Movimiento</dt>
+        <dd class="col-sm-10">@Model.ValorMovimiento</dd>
+
+        <dt class="col-sm-2">Valor Movimiento Pagado</dt>
+        <dd class="col-sm-10">@Model.ValorMovimientoPagado</dd>
+
+        <dt class="col-sm-2">Descripción</dt>
+        <dd class="col-sm-10">@Model.Descripcion</dd>
+
+        <dt class="col-sm-2">Fecha Creación</dt>
+        <dd class="col-sm-10">@Model.FechaCreacion.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Usuario Creación</dt>
+        <dd class="col-sm-10">@Model.UsuarioCreacion</dd>
+    </dl>
+
+    <form asp-action="BorrarMovimiento">
+        <input type="hidden" asp-for="IdMovimientoCuenta" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

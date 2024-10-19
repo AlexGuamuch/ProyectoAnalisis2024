@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SistemaSeguridad.Models.SaldoCuentum>
+
+@{
+    ViewData["Title"] = "Buscar Saldos";
+}
+
+<h2>Buscar Saldos</h2>
+
+<!-- Formulario de búsqueda -->
+<form method="post" asp-action="Index" class="mb-4">
+    <div class="form-group">
+        <label for="tipoBusqueda">Buscar por:</label>
+        <select id="tipoBusqueda" name="tipoBusqueda" class="form-control" required>
+            <option value="Nombre">Nombre</option>
+            <option value="DPI">DPI</option>
+            <option value="NumeroCuenta">Número de Cuenta</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="text" name="valorBusqueda" class="form-control" placeholder="Ingrese el valor de búsqueda" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+<!-- Validación de errores -->
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @ViewData.ModelState.Values.FirstOrDefault()?.Errors.FirstOrDefault()?.ErrorMessage
+    </div>
+}
+
+<!-- Resultados de búsqueda -->
+@if (Model.Any())
+{
+    <h3>Resultados</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id Saldo Cuenta</th>
+                <th>Id Persona</th>
+                <th>Id Status Cuenta</th>
+                <th>Id Tipo Saldo Cuenta</th>
+                <th>Saldo Anterior</th>
+                <th>Débitos</th>
+                <th>Créditos</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var saldo in Model)
+            {
+                <tr>
+                    <td>@saldo.IdSaldoCuenta</td>
+                    <td>@saldo.IdPersona</td>
+                    <td>@saldo.IdStatusCuenta</td>
+                    <td>@saldo.IdTipoSaldoCuenta</td>
+                    <td>@saldo.SaldoAnterior</td>
+                    <td>@saldo.Debitos</td>
+                    <td>@saldo.Creditos</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron resultados.</p>
+}

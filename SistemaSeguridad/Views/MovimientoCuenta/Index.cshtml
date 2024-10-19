@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MovimientoCuentum>
+
+@{
+    ViewData["Title"] = "Lista de Movimientos";
+}
+
+<h1>Lista de Movimientos</h1>
+
+<p>
+    <a asp-action="Crear" class="btn btn-primary">Registrar Nuevo Movimiento</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Id Saldo Cuenta</th>
+            <th>Tipo Movimiento</th>
+            <th>Fecha Movimiento</th>
+            <th>Valor Movimiento</th>
+            <th>Valor Movimiento Pagado</th>
+            <th>Descripción</th>
+            <th>Fecha Creación</th>
+            <th>Usuario Creación</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movimiento in Model)
+        {
+            <tr>
+                <td>@movimiento.IdMovimientoCuenta</td>
+                <td>@movimiento.IdSaldoCuenta</td>
+                <td>@movimiento.IdTipoMovimientoCxc</td>
+                <td>@movimiento.FechaMovimiento.ToString("dd/MM/yyyy")</td>
+                <td>@movimiento.ValorMovimiento</td>
+                <td>@movimiento.ValorMovimientoPagado</td>
+                <td>@movimiento.Descripcion</td>
+                <td>@movimiento.FechaCreacion.ToString("dd/MM/yyyy")</td>
+                <td>@movimiento.UsuarioCreacion</td>
+                <td>
+                    <a asp-action="Editar" asp-route-idMovimientoCuenta="@movimiento.IdMovimientoCuenta" class="btn btn-warning">Editar</a>
+                    <a asp-action="Borrar" asp-route-idMovimientoCuenta="@movimiento.IdMovimientoCuenta" class="btn btn-danger">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
