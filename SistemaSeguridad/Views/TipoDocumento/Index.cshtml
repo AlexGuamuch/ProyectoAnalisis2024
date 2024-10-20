@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SistemaSeguridad.Models.TipoDocumento>
+
+@{
+    ViewData["Title"] = "Tipos de Documento";
+}
+
+<!-- Contenedor principal -->
+<div class="custom-background p-4">
+
+    <!-- Título -->
+    <h1 class="mb-4 text-black">@ViewData["Title"]</h1>
+
+    <!-- Resultados -->
+    @if (Model.Any())
+    {
+        <h3 class="mb-4 text-black">Resultados</h3>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered bg-white">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Fecha Creación</th>
+                        <th>Usuario Creación</th>
+                        <th>Fecha Modificación</th>
+                        <th>Usuario Modificación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tipoDocumento in Model)
+                    {
+                        <tr>
+                            <td>@tipoDocumento.IdTipoDocumento</td>
+                            <td>@tipoDocumento.Nombre</td>
+                            <td>@tipoDocumento.FechaCreacion.ToString("yyyy-MM-dd")</td>
+                            <td>@tipoDocumento.UsuarioCreacion</td>
+                            <td>@tipoDocumento.FechaModificacion?.ToString("yyyy-MM-dd")</td>
+                            <td>@tipoDocumento.UsuarioModificacion</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p>No se encontraron resultados.</p>
+    }
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Color de fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }
+
+    .bg-white {
+        background-color: #ffffff; /* Fondo blanco para la tabla */
+    }
+
+    .text-black {
+        color: black; /* Texto negro para títulos */
+    }
+
+    .thead-dark {
+        background-color: #ffffff; /* Fondo claro para el encabezado de la tabla */
+        color: black; /* Texto negro para el encabezado de la tabla */
+    }
+
+    .table th {
+        text-align: center; /* Alinear el texto de los encabezados al centro */
+    }
+
+    .table td {
+        font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+        padding: 0.5rem; /* Relleno más pequeño */
+    }
+</style>

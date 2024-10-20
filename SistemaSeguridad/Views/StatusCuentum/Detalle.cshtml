@@ -1,0 +1,62 @@
+﻿@model SistemaSeguridad.Models.StatusCuentum
+
+@{
+    ViewData["Title"] = "Detalles de Status Cuenta";
+}
+
+<!-- Contenedor principal -->
+<div class="custom-background p-4">
+
+    <!-- Título -->
+    <h1 class="mb-4 text-black">@ViewData["Title"]</h1>
+
+    <div>
+        <h4>Status Cuenta</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Id</dt>
+            <dd class="col-sm-10">@Model.IdStatusCuenta</dd>
+
+            <dt class="col-sm-2">Nombre</dt>
+            <dd class="col-sm-10">@Model.Nombre</dd>
+
+            <dt class="col-sm-2">Fecha Creación</dt>
+            <dd class="col-sm-10">@Model.FechaCreacion.ToString("yyyy-MM-dd")</dd>
+
+            <dt class="col-sm-2">Usuario Creación</dt>
+            <dd class="col-sm-10">@Model.UsuarioCreacion</dd>
+
+            <dt class="col-sm-2">Fecha Modificación</dt>
+            <dd class="col-sm-10">@Model.FechaModificacion?.ToString("yyyy-MM-dd")</dd>
+
+            <dt class="col-sm-2">Usuario Modificación</dt>
+            <dd class="col-sm-10">@Model.UsuarioModificacion</dd>
+        </dl>
+        <div>
+            <a asp-action="Index" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Color de fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }
+
+    .text-black {
+        color: black; /* Texto negro para títulos */
+    }
+
+    .btn-primary {
+        background-color: #2980b9; /* Azul para el botón de volver */
+        border-color: #2980b9;
+    }
+
+    .btn-primary:hover {
+        background-color: #3498db; /* Azul más claro al pasar el ratón */
+        border-color: #3498db;
+    }
+</style>
