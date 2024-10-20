@@ -1,7 +1,7 @@
-﻿@model IEnumerable<SistemaSeguridad.Models.TipoDocumento>
+﻿@model IEnumerable<SistemaSeguridad.Models.TipoSaldoCuentum>
 
 @{
-    ViewData["Title"] = "Tipos de Documento";
+    ViewData["Title"] = "Tipos de Saldo Cuenta";
 }
 
 <!-- Contenedor principal -->
@@ -10,7 +10,7 @@
     <!-- Título -->
     <h1 class="mb-4 text-black">@ViewData["Title"]</h1>
 
-    <!-- Tabla de tipos de documento -->
+    <!-- Tabla de tipos de saldo cuenta -->
     <div class="table-responsive">
         <table class="table table-striped table-bordered bg-white">
             <thead class="thead-dark">
@@ -24,15 +24,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var tipoDocumento in Model)
+                @foreach (var tipoSaldo in Model)
                 {
                     <tr>
-                        <td>@tipoDocumento.IdTipoDocumento</td>
-                        <td>@tipoDocumento.Nombre</td>
-                        <td>@tipoDocumento.FechaCreacion.ToString("yyyy-MM-dd")</td>
-                        <td>@tipoDocumento.UsuarioCreacion</td>
-                        <td>@tipoDocumento.FechaModificacion?.ToString("yyyy-MM-dd")</td>
-                        <td>@tipoDocumento.UsuarioModificacion</td>
+                        <td>@tipoSaldo.IdTipoSaldoCuenta</td>
+                        <td>@tipoSaldo.Nombre</td>
+                        <td>@tipoSaldo.FechaCreacion.ToString("yyyy-MM-dd")</td>
+                        <td>@tipoSaldo.UsuarioCreacion</td>
+                        <td>@tipoSaldo.FechaModificacion?.ToString("yyyy-MM-dd")</td>
+                        <td>@tipoSaldo.UsuarioModificacion</td>
                     </tr>
                 }
             </tbody>

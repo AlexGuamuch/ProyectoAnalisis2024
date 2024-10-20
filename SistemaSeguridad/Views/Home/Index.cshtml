@@ -44,6 +44,16 @@
             .dropdown-menu.show {
                 display: block;
             }
+
+        /* Estilos personalizados */
+        .dropdown-menu {
+            background-color: #f8f9fa; /* Color de fondo claro */
+        }
+
+        .dropdown-item:hover {
+            background-color: #e2e6ea; /* Color de fondo al pasar el ratón */
+            color: #495057; /* Color del texto al pasar el ratón */
+        }
     </style>
 </head>
 <body>
@@ -73,9 +83,11 @@
                                 <a class="dropdown-item" href="@Url.Action("Index", "UsuarioRole")">Roles Usuario</a>
                                 <a class="dropdown-item" href="@Url.Action("Index", "Opcion")">Opciones</a>
                                 <a class="dropdown-item" href="@Url.Action("Index", "Menu")">Menú</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "Modulo")">Modulos</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Modulo")">Módulos</a>
                             </div>
                         </div>
+
+                        <div class="dropdown-divider"></div> <!-- Línea divisoria -->
 
                         <div class="dropdown">
                             <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdownAcciones" role="button">
@@ -99,13 +111,16 @@
                                 Parámetros Cuenta Corriente
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="@Url.Action("Index", "DocumentoPersona")">Documento Persona</a>
-                                 <a class="dropdown-item" href="@Url.Action("Index", "TipoDocumento")">Tipo Documentos</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "Persona")">Personas</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "SaldoCuentum")">Saldo Cuentas</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "StatusCuentum")">Estado Cuentas</a>
-                                <a class="dropdown-item" href="@Url.Action("Index", "EstadoCivil")">Estado Civil</a>
                                 <a class="dropdown-item" href="@Url.Action("Index", "MovimientoCuenta")">Registrar Movimiento</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "SaldoCuentum")">Saldo Cuentas</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "TipoMovimientoCxc")">Tipo Movimiento</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "Persona")">Personas</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "DocumentoPersona")">Documento Persona</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "EstadoCivil")">Estado Civil</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "TipoDocumento")">Tipo Documentos</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "TipoSaldoCuentum")">Tipo Saldos Cuentas</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "StatusCuentum")">Estado Cuentas</a>
+                                <a class="dropdown-item" href="@Url.Action("Index", "FechaActiva")">Cierre</a>
                             </div>
                         </div>
                     </div>

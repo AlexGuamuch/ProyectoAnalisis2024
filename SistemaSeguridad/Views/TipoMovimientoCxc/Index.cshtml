@@ -1,7 +1,7 @@
-﻿@model IEnumerable<SistemaSeguridad.Models.TipoDocumento>
+﻿@model IEnumerable<SistemaSeguridad.Models.TipoMovimientoCxc>
 
 @{
-    ViewData["Title"] = "Tipos de Documento";
+    ViewData["Title"] = "Tipos de Movimiento CXC";
 }
 
 <!-- Contenedor principal -->
@@ -10,13 +10,14 @@
     <!-- Título -->
     <h1 class="mb-4 text-black">@ViewData["Title"]</h1>
 
-    <!-- Tabla de tipos de documento -->
+    <!-- Tabla de tipos de movimiento -->
     <div class="table-responsive">
         <table class="table table-striped table-bordered bg-white">
             <thead class="thead-dark">
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
+                    <th>Operación Cuenta Corriente</th>
                     <th>Fecha Creación</th>
                     <th>Usuario Creación</th>
                     <th>Fecha Modificación</th>
@@ -24,15 +25,16 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var tipoDocumento in Model)
+                @foreach (var tipoMovimiento in Model)
                 {
                     <tr>
-                        <td>@tipoDocumento.IdTipoDocumento</td>
-                        <td>@tipoDocumento.Nombre</td>
-                        <td>@tipoDocumento.FechaCreacion.ToString("yyyy-MM-dd")</td>
-                        <td>@tipoDocumento.UsuarioCreacion</td>
-                        <td>@tipoDocumento.FechaModificacion?.ToString("yyyy-MM-dd")</td>
-                        <td>@tipoDocumento.UsuarioModificacion</td>
+                        <td>@tipoMovimiento.IdTipoMovimientoCxc</td>
+                        <td>@tipoMovimiento.Nombre</td>
+                        <td>@tipoMovimiento.OperacionCuentaCorriente</td>
+                        <td>@tipoMovimiento.FechaCreacion.ToString("yyyy-MM-dd")</td>
+                        <td>@tipoMovimiento.UsuarioCreacion</td>
+                        <td>@tipoMovimiento.FechaModificacion?.ToString("yyyy-MM-dd")</td>
+                        <td>@tipoMovimiento.UsuarioModificacion</td>
                     </tr>
                 }
             </tbody>
