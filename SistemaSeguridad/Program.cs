@@ -28,6 +28,8 @@ builder.Services.AddScoped<IRepositoryEstadoCivil, RepositoryEstadoCivil>();
 builder.Services.AddScoped<IRepositoryMovimientoCuenta, RepositoryMovimientoCuenta>();
 builder.Services.AddScoped<IRepositoryPersona, RepositoryPersona>();
 builder.Services.AddScoped<IRepositorySaldoCuenta, RepositorySaldoCuenta>();
+builder.Services.AddScoped<IRepositoryStatusCuentum, RepositoryStatusCuentum>();
+builder.Services.AddScoped<IRepositoryTipoDocumento, RepositoryTipoDocumento>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<IReposirorySucursal, RepositorySucursal>();
 builder.Services.AddTransient<IRepositoryUsuarios, RepositoryUsuarios>();
