@@ -1,0 +1,66 @@
+@model MovimientoCuentum
+@{
+    ViewData["Title"] = "Registrar Movimiento";
+}
+
+<h1>Registrar Movimiento</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach
+           (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    <li>
+                        @error.ErrorMessage
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+}
+@if
+(TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData ["SuccessMessage"]
+    </div>
+}
+
+
+<form asp-action="RegistrarMovimiento" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="IdSaldoCuenta">Cliente</label>
+        <select asp-for="IdSaldoCuenta" asp-items="ViewBag.Clientes" class="form-control">
+            <option value="">-- Seleccione un cliente --</option>
+        </select>
+        <span asp-validation-for="IdSaldoCuenta" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IdTipoMovimientoCxc">Tipo de Movimiento</label>
+        <select asp-for="IdTipoMovimientoCxc" class="form-control">
+            <option value="1">Abono</option>
+            <option value="2">Cargo</option>
+        </select>
+        <span asp-validation-for="IdTipoMovimientoCxc" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ValorMovimiento">Valor del Movimiento</label>
+        <input asp-for="ValorMovimiento" class="form-control" />
+        <span asp-validation-for="ValorMovimiento" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Descripcion">Descripción</label>
+        <input asp-for="Descripcion" class="form-control" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
