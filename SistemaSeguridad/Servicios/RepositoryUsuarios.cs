@@ -10,6 +10,7 @@ namespace SistemaSeguridad.Servicios
         	Task Borrar(string idUsuario);
         	Task<UsuarioPrueba> BuscarUsuarioEmail(string CorreoElectronico);
 		Task<UsuarioPrueba> BuscarUsuario(string Nombre);
+		Task<UsuarioPrueba> BuscarUsuarioNombre(string Nombre);
 		Task<string> CrearUsuario(UsuarioPrueba usuarioPrueba);
         	Task<bool> Existe(string IdUsuario);
         	Task<IEnumerable<UsuarioPrueba>> Obtener();
