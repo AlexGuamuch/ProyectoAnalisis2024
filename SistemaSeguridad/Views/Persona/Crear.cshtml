@@ -4,60 +4,94 @@
     ViewData["Title"] = "Crear Persona";
 }
 
-<h1>Crear Nueva Persona</h1>
+<div class="custom-background p-4">
+    <h2>Crear Nueva Persona</h2>
 
-<form asp-action="Crear" method="post">
-    <div class="form-group">
-        <label asp-for="Nombre" class="control-label"></label>
-        <input asp-for="Nombre" class="form-control" />
-        <span asp-validation-for="Nombre" class="text-danger"></span>
-    </div>
+    <form asp-action="Crear" method="post">
+        <div class="form-group">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="Apellido" class="control-label"></label>
-        <input asp-for="Apellido" class="form-control" />
-        <span asp-validation-for="Apellido" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Apellido" class="control-label"></label>
+            <input asp-for="Apellido" class="form-control" />
+            <span asp-validation-for="Apellido" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="FechaNacimiento" class="control-label"></label>
-        <input asp-for="FechaNacimiento" type="date" class="form-control" />
-        <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="FechaNacimiento" class="control-label"></label>
+            <input asp-for="FechaNacimiento" type="date" class="form-control" />
+            <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="IdGenero" class="control-label"></label>
-        <input asp-for="IdGenero" class="form-control" />
-        <span asp-validation-for="IdGenero" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="IdGenero" class="control-label"></label>
+            <input asp-for="IdGenero" class="form-control" />
+            <span asp-validation-for="IdGenero" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="Direccion" class="control-label"></label>
-        <input asp-for="Direccion" class="form-control" />
-        <span asp-validation-for="Direccion" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Direccion" class="control-label"></label>
+            <input asp-for="Direccion" class="form-control" />
+            <span asp-validation-for="Direccion" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="Telefono" class="control-label"></label>
-        <input asp-for="Telefono" class="form-control" />
-        <span asp-validation-for="Telefono" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Telefono" class="control-label"></label>
+            <input asp-for="Telefono" class="form-control" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="CorreoElectronico" class="control-label"></label>
-        <input asp-for="CorreoElectronico" type="email" class="form-control" />
-        <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="CorreoElectronico" class="control-label"></label>
+            <input asp-for="CorreoElectronico" type="email" class="form-control" />
+            <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="IdEstadoCivil" class="control-label"></label>
-        <input asp-for="IdEstadoCivil" class="form-control" />
-        <span asp-validation-for="IdEstadoCivil" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="IdEstadoCivil" class="control-label"></label>
+            <input asp-for="IdEstadoCivil" class="form-control" />
+            <span asp-validation-for="IdEstadoCivil" class="text-danger"></span>
+        </div>
 
-    <div class="form-group">
-        <input type="submit" value="Crear" class="btn btn-primary" />
-    </div>
-</form>
+        <button type="submit" class="btn btn-success">Crear</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
 
-<a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+        padding: 20px; /* Espaciado interno */
+    }
+
+    .btn-success {
+        background-color: #27ae60; /* Verde para Crear */
+        border-color: #27ae60;
+    }
+
+        .btn-success:hover {
+            background-color: #2ecc71; /* Verde más claro en hover */
+            border-color: #2ecc71;
+        }
+
+    .btn-secondary {
+        background-color: #7f8c8d; /* Gris para Cancelar */
+        border-color: #7f8c8d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #95a5a6; /* Gris más claro en hover */
+            border-color: #95a5a6;
+        }
+</style>
