@@ -13,6 +13,7 @@ namespace SistemaSeguridad.Servicios
         Task<Persona> ObtenerPorId(int idPersona);
         Task Actualizar(Persona persona);
         Task Borrar(int idPersona);
+        Task<IEnumerable<PersonaViewModel>> ObtenerClientes();
     }
 
     public class RepositoryPersona : IRepositoryPersona
@@ -117,5 +118,19 @@ namespace SistemaSeguridad.Servicios
                 WHERE IdPersona = @IdPersona;",
                 new { IdPersona = idPersona });
         }
+        
+        public async Task<IEnumerable<PersonaViewModel>> ObtenerClientes()
+        {
+        using var connection = new SqlConnection(connectionString);
+        return await connection.QueryAsync<PersonaViewModel>(
+            @"SELECT IdPersona, CONCAT(Nombre, ' ', Apellido) AS NombreCompleto 
+              FROM Persona");
+        }
+    }
+    
+    public class PersonaViewModel
+    {
+        public int IdPersona { get; set; }
+        public string NombreCompleto { get; set; }
     }
 }
