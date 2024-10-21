@@ -1,4 +1,4 @@
-@model IEnumerable<SaldoCuenta>
+@model IEnumerable<SaldoCuentum>
 
     @{
     ViewData["Title"] = "Todas las Cuentas";
@@ -23,10 +23,10 @@
             <tr>
                 <td>@cuenta.IdSaldoCuenta</td>
                 <td>@cuenta.IdPersona</td>
-                <td>@cuenta.SaldoAnterior.ToString("C")</td>
-                <td>@cuenta.Debitos.ToString("C")</td>
-                <td>@cuenta.Creditos.ToString("C")</td>
-                <td>@((cuenta.SaldoAnterior + cuenta.Creditos - cuenta.Debitos).ToString("C"))</td>
+                <td>@cuenta.SaldoAnterior</td>
+                <td>@cuenta.Debitos</td>
+                <td>@cuenta.Creditos</td>
+                <td>@(cuenta.SaldoAnterior)</td>
             </tr>
         }
         </tbody>
