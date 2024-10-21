@@ -1,0 +1,33 @@
+@model IEnumerable<SaldoCuenta>
+
+    @{
+    ViewData["Title"] = "Todas las Cuentas";
+    }
+
+    <h1>Listado de Cuentas</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID Cuenta</th>
+                <th>ID Cliente</th>
+                <th>Saldo Anterior</th>
+                <th>Débitos</th>
+                <th>Créditos</th>
+                <th>Saldo Actual</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cuenta in Model)
+        {
+            <tr>
+                <td>@cuenta.IdSaldoCuenta</td>
+                <td>@cuenta.IdPersona</td>
+                <td>@cuenta.SaldoAnterior.ToString("C")</td>
+                <td>@cuenta.Debitos.ToString("C")</td>
+                <td>@cuenta.Creditos.ToString("C")</td>
+                <td>@((cuenta.SaldoAnterior + cuenta.Creditos - cuenta.Debitos).ToString("C"))</td>
+            </tr>
+        }
+        </tbody>
+    </table>
