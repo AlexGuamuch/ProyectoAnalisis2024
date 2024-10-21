@@ -23,6 +23,7 @@ builder.Services.AddTransient<IRepositoryOpcion, RepositoryOpcion>();
 builder.Services.AddTransient<IRepositoryModulo, RepositoryModulo>();
 builder.Services.AddTransient<IRepositoryUsuarioRole, RepositoryUsuarioRole>();
 builder.Services.AddTransient<IRepositoryBitacoraAcceso, RepositoryBitacoraAcceso>();
+builder.Services.AddTransient<IRepositoryCuentaCorriente, RepositoryCuentaCorriente>();
 builder.Services.AddScoped<IRepositoryDocumentoPersona, RepositoryDocumentoPersona>();
 builder.Services.AddScoped<IRepositoryEstadoCivil, RepositoryEstadoCivil>();
 builder.Services.AddScoped<IRepositoryMovimientoCuenta, RepositoryMovimientoCuenta>();
