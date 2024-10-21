@@ -1,0 +1,31 @@
+@model IEnumerable<SaldoCuentum>
+
+@{
+    ViewData["Title"] = "Cuentas por Cliente";
+}
+
+<h1>Cuentas del Cliente</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID Cuenta</th>
+            <th>Saldo Anterior</th>
+            <th>Débitos</th>
+            <th>Créditos</th>
+            <th>Saldo Actual</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cuenta in Model)
+        {
+            <tr>
+                <td>@cuenta.IdSaldoCuenta</td>
+                <td>@cuenta.SaldoAnterior</td>
+                <td>@cuenta.Debitos</td>
+                <td>@cuenta.Creditos</td>
+                <td>@((cuenta.SaldoAnterior))</td>
+            </tr>
+        }
+    </tbody>
+</table>
