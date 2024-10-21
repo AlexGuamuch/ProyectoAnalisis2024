@@ -139,7 +139,7 @@ namespace SistemaSeguridad.Controllers
         // Método para cargar géneros y estados civiles
         private async Task CargarGenerosYEstadosCiviles()
         {
-            ViewBag.Generos = await repositoryGenero.ObtenerTodos(); // Método para obtener todos los géneros
+            ViewBag.Generos = await repositoryGenero.Obtener(); // Método para obtener todos los géneros
             ViewBag.EstadosCiviles = await repositoryEstadoCivil.ObtenerTodos(); // Método para obtener todos los estados civiles
         }
     }
