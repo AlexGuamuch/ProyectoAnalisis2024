@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
 using System.Text;
@@ -10,19 +11,19 @@ namespace SistemaSeguridad.Controllers
     {
         private readonly IRepositoryPersona repositoryPersona;
         private readonly IServicioUsuarios servicioUsuarios;
-        private readonly IRepositoryGenero repositoryGenero; // Añadido
-        private readonly IRepositoryEstadoCivil repositoryEstadoCivil; // Añadido
+        private readonly IRepositoryGenero repositoryGenero;
+        private readonly IRepositoryEstadoCivil repositoryEstadoCivil;
 
         public PersonaController(
             IRepositoryPersona repositoryPersona,
             IServicioUsuarios servicioUsuarios,
-            IRepositoryGenero repositoryGenero, // Añadido
-            IRepositoryEstadoCivil repositoryEstadoCivil) // Añadido
+            IRepositoryGenero repositoryGenero,
+            IRepositoryEstadoCivil repositoryEstadoCivil)
         {
             this.repositoryPersona = repositoryPersona;
             this.servicioUsuarios = servicioUsuarios;
-            this.repositoryGenero = repositoryGenero; // Añadido
-            this.repositoryEstadoCivil = repositoryEstadoCivil; // Añadido
+            this.repositoryGenero = repositoryGenero;
+            this.repositoryEstadoCivil = repositoryEstadoCivil;
         }
 
         public async Task<IActionResult> Index()
@@ -33,7 +34,7 @@ namespace SistemaSeguridad.Controllers
 
         public async Task<IActionResult> Crear()
         {
-            await CargarGenerosYEstadosCiviles(); // Cargar datos en la vista Crear
+            await CargarGenerosYEstadosCiviles();
             return View();
         }
 
@@ -42,28 +43,35 @@ namespace SistemaSeguridad.Controllers
         {
             if (!ModelState.IsValid)
             {
-                await CargarGenerosYEstadosCiviles(); // Cargar datos si hay errores
+                await CargarGenerosYEstadosCiviles();
                 return View(persona);
             }
 
-            persona.UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId();
-            persona.FechaCreacion = DateTime.Now; // Asigna la fecha de creación
-
-            await repositoryPersona.Crear(persona);
-            return RedirectToAction("Index");
+            try
+            {
+                persona.UsuarioCreacion = servicioUsuarios.ObtenerUsuarioId();
+                persona.FechaCreacion = DateTime.Now;
+                await repositoryPersona.Crear(persona);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al crear la persona: " + ex.Message);
+                await CargarGenerosYEstadosCiviles();
+                return View(persona);
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> Editar(int idPersona)
         {
             var persona = await repositoryPersona.ObtenerPorId(idPersona);
-
             if (persona is null)
             {
                 return RedirectToAction("Index");
             }
 
-            await CargarGenerosYEstadosCiviles(); // Cargar datos para el dropdown en la vista Editar
+            await CargarGenerosYEstadosCiviles();
             return View(persona);
         }
 
@@ -72,28 +80,35 @@ namespace SistemaSeguridad.Controllers
         {
             if (!ModelState.IsValid)
             {
-                await CargarGenerosYEstadosCiviles(); // Cargar datos si hay errores
+                await CargarGenerosYEstadosCiviles();
                 return View(persona);
             }
 
-            persona.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
-            persona.FechaModificacion = DateTime.Now; // Asigna la fecha de modificación
-
-            var personaExistente = await repositoryPersona.ObtenerPorId(persona.IdPersona);
-
-            if (personaExistente is null)
+            try
             {
+                persona.UsuarioModificacion = servicioUsuarios.ObtenerUsuarioId();
+                persona.FechaModificacion = DateTime.Now;
+
+                var personaExistente = await repositoryPersona.ObtenerPorId(persona.IdPersona);
+                if (personaExistente is null)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                await repositoryPersona.Actualizar(persona);
                 return RedirectToAction("Index");
             }
-
-            await repositoryPersona.Actualizar(persona);
-            return RedirectToAction("Index");
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Error al editar la persona: " + ex.Message);
+                await CargarGenerosYEstadosCiviles();
+                return View(persona);
+            }
         }
 
         public async Task<IActionResult> Borrar(int idPersona)
         {
             var persona = await repositoryPersona.ObtenerPorId(idPersona);
-
             if (persona is null)
             {
                 return RedirectToAction("Index");
@@ -103,10 +118,9 @@ namespace SistemaSeguridad.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> BorrarPersona(int idPersona)
+        public async Task<IActionResult> BorrarPersona(int idPersona) // Cambiado el nombre del método
         {
             var persona = await repositoryPersona.ObtenerPorId(idPersona);
-
             if (persona is null)
             {
                 return RedirectToAction("Index");
@@ -116,7 +130,6 @@ namespace SistemaSeguridad.Controllers
             return RedirectToAction("Index");
         }
 
-        // Método para exportar a CSV
         [HttpGet]
         public async Task<IActionResult> ExportarCSV()
         {
@@ -136,11 +149,21 @@ namespace SistemaSeguridad.Controllers
             return File(bytes, "text/csv", "personas.csv");
         }
 
-        // Método para cargar géneros y estados civiles
         private async Task CargarGenerosYEstadosCiviles()
         {
-            ViewBag.Generos = await repositoryGenero.Obtener(); // Método para obtener todos los géneros
-            ViewBag.EstadosCiviles = await repositoryEstadoCivil.ObtenerTodos(); // Método para obtener todos los estados civiles
+            var generos = await repositoryGenero.Obtener();
+            ViewBag.Generos = generos.Select(g => new SelectListItem
+            {
+                Value = g.IdGenero.ToString(),
+                Text = g.Nombre // Cambia 'Nombre' por la propiedad que desees mostrar
+            }).ToList();
+
+            var estadosCiviles = await repositoryEstadoCivil.ObtenerTodos();
+            ViewBag.EstadosCiviles = estadosCiviles.Select(ec => new SelectListItem
+            {
+                Value = ec.IdEstadoCivil.ToString(),
+                Text = ec.Nombre // Cambia 'Nombre' por la propiedad que desees mostrar
+            }).ToList();
         }
     }
 }
