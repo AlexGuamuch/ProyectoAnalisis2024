@@ -32,13 +32,13 @@
                 {
                     <tr>
                         <td class="text-center" style="white-space: nowrap;">
-                            <a class="btn btn-sm btn-info" asp-action="Editar" asp-route-IdDocumento="@documento.IdTipoDocumento">
-                                <i class="fas fa-edit"></i> Editar
-                            </a>
+                            
                             <a class="btn btn-sm btn-danger" asp-action="Borrar" asp-route-IdDocumento="@documento.IdTipoDocumento" onclick="return confirm('¿Estás seguro de que deseas eliminar este documento?');">
                                 <i class="fas fa-trash-alt"></i> Borrar
                             </a>
                         </td>
+
+
                         <td class="text-truncate" style="max-width: 200px;">@documento.IdPersona</td> 
                         <td class="text-truncate" style="max-width: 200px;">@documento.IdTipoDocumento</td>
                         <td class="text-truncate" style="max-width: 200px;">@documento.NoDocumento</td>
