@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
 
 namespace SistemaSeguridad.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class EstadoCivilController : ControllerBase
+    public class EstadoCivilController : Controller
     {
         private readonly IRepositoryEstadoCivil _repository;
 
@@ -15,24 +12,17 @@ namespace SistemaSeguridad.Controllers
             _repository = repository;
         }
 
-        // GET: api/EstadoCivil
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<EstadoCivil>>> Get()
+        public async Task<IActionResult> Index()
         {
             var estadosCiviles = await _repository.ObtenerTodos();
-            return Ok(estadosCiviles);
+            return View(estadosCiviles);
         }
 
-        // GET: api/EstadoCivil/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<EstadoCivil>> Get(int id)
+        public async Task<IActionResult> Detalle(int id)
         {
             var estadoCivil = await _repository.ObtenerPorId(id);
-            if (estadoCivil == null)
-            {
-                return NotFound();
-            }
-            return Ok(estadoCivil);
+            if (estadoCivil == null) return NotFound();
+            return View(estadoCivil);
         }
     }
 }
