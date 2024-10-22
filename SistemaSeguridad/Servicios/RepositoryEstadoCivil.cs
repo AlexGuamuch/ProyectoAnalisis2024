@@ -7,7 +7,7 @@ namespace SistemaSeguridad.Servicios
     public interface IRepositoryEstadoCivil
     {
         Task<IEnumerable<EstadoCivil>> ObtenerTodos();
-        Task<EstadoCivil> ObtenerPorId(int idEstadoCivil);
+        Task<EstadoCivil> ObtenerPorId(int id);
     }
 
     public class RepositoryEstadoCivil : IRepositoryEstadoCivil
@@ -23,20 +23,20 @@ namespace SistemaSeguridad.Servicios
         {
             using var connection = new SqlConnection(connectionString);
             return await connection.QueryAsync<EstadoCivil>(@"
-                SELECT IdEstadoCivil, Nombre, FechaCreacion, 
-                       UsuarioCreacion, FechaModificacion, UsuarioModificacion
-                FROM ESTADO_CIVIL;"); // Asegúrate de que el nombre de la tabla es correcto
+                SELECT IdEstadoCivil, Nombre, FechaCreacion, UsuarioCreacion, 
+                       FechaModificacion, UsuarioModificacion
+                FROM ESTADO_CIVIL;");
         }
 
-        public async Task<EstadoCivil> ObtenerPorId(int idEstadoCivil)
+        public async Task<EstadoCivil> ObtenerPorId(int id)
         {
             using var connection = new SqlConnection(connectionString);
             return await connection.QueryFirstOrDefaultAsync<EstadoCivil>(@"
-                SELECT IdEstadoCivil, Nombre, FechaCreacion, 
-                       UsuarioCreacion, FechaModificacion, UsuarioModificacion
-                FROM ESTADO_CIVIL 
-                WHERE IdEstadoCivil = @IdEstadoCivil;",
-                new { IdEstadoCivil = idEstadoCivil });
+                SELECT IdEstadoCivil, Nombre, FechaCreacion, UsuarioCreacion, 
+                       FechaModificacion, UsuarioModificacion
+                FROM ESTADO_CIVIL
+                WHERE IdEstadoCivil = @Id;",
+                new { Id = id });
         }
     }
 }
