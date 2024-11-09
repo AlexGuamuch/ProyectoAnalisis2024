@@ -1,0 +1,86 @@
+﻿@model UsuarioPrueba
+
+@{
+	ViewData["Title"] = "Mi Perfil";
+}
+<div class="custom-background p-4">
+
+	<form asp-action="Registro">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+		<div class="mb-3">
+		<label class="form-label">Fotografía</label>
+		@if (!string.IsNullOrEmpty(Model.Fotografia))
+		{
+			<img src="~/Uploads/@Model.Fotografia" alt="Fotografía de @Model.Nombre" class="img-thumbnail" style="max-width: 150px; max-height: 150px;" />
+		}
+		else
+		{
+			<img src="~/Uploads/default.jpeg" alt="Fotografía de @Model.Nombre" class="img-thumbnail" style="max-width: 150px; max-height: 150px;" />
+		}
+		</div>
+
+		<div class="mb-3">
+		<label asp-for="IdUsuario" class="form-label"></label>
+		<input asp-for="IdUsuario" class="form-control" />
+		<span asp-validation-for="IdUsuario" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+		<label asp-for="Nombre" class="form-label"></label>
+		<input asp-for="Nombre" class="form-control" />
+		<span asp-validation-for="Nombre" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="CorreoElectronico" class="form-label"></label>
+			<input asp-for="CorreoElectronico" class="form-control" />
+			<span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+		</div>
+
+		<a class="btn btn-primary" asp-action="Editar">Editar</a>
+		<a class="btn btn-primary" asp-controller="UsuarioPregunta" asp-action="Crear">Preguntas de Seguridad</a>
+	</form>
+</div>
+
+@if (TempData["MensajeExito"] != null)
+{
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		@TempData["MensajeExito"]
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+}
+
+<style>
+	.custom-background {
+		background-color: #ffffff; /* Color de fondo blanco */
+		border-radius: 10px; /* Bordes redondeados */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+		padding: 20px; /* Espaciado interno */
+	}
+
+	.text-black {
+		color: black; /* Texto negro para títulos */
+	}
+
+	.form-group label {
+		font-weight: bold; /* Etiquetas en negrita */
+		margin-bottom: 0.5rem; /* Espaciado inferior */
+	}
+
+	.form-control {
+		border-radius: 5px; /* Bordes redondeados para los inputs */
+		padding: 0.5rem; /* Espaciado interno */
+		margin-bottom: 1rem; /* Espaciado inferior entre inputs */
+	}
+
+	.btn-success {
+		background-color: #27ae60; /* Verde para el botón de guardar */
+		border-color: #27ae60;
+	}
+
+		.btn-success:hover {
+			background-color: #2ecc71; /* Verde más claro al pasar el ratón */
+			border-color: #2ecc71;
+		}
+</style>

@@ -1,0 +1,124 @@
+﻿@model IEnumerable<SistemaSeguridad.Models.SaldoCuentum>
+
+@{
+    ViewData["Title"] = "Buscar Saldos";
+}
+
+<!-- Contenedor principal -->
+<div class="custom-background p-4">
+
+    <!-- Título -->
+    <h1 class="mb-4 text-black">@ViewData["Title"]</h1>
+
+    <!-- Formulario de búsqueda -->
+    <form method="post" asp-action="Index" class="mb-4">
+        <div class="form-group">
+            <label for="tipoBusqueda" class="text-black">Buscar por:</label>
+            <select id="tipoBusqueda" name="tipoBusqueda" class="form-control" required>
+                <option value="Nombre">Nombre</option>
+                <option value="DPI">DPI</option>
+                <option value="NumeroCuenta">Número de Cuenta</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="valorBusqueda" class="form-control" placeholder="Ingrese el valor de búsqueda" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <!-- Validación de errores -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @ViewData.ModelState.Values.FirstOrDefault()?.Errors.FirstOrDefault()?.ErrorMessage
+        </div>
+    }
+
+    <!-- Resultados de búsqueda -->
+    @if (Model.Any())
+    {
+        <h3 class="mb-4 text-black">Resultados</h3>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered bg-white">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id Saldo Cuenta</th>
+                        <th>Id Persona</th>
+                        <th>Id Status Cuenta</th>
+                        <th>Id Tipo Saldo Cuenta</th>
+                        <th>Saldo Anterior</th>
+                        <th>Débitos</th>
+                        <th>Créditos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var saldo in Model)
+                    {
+                        <tr>
+                            <td>@saldo.IdSaldoCuenta</td>
+                            <td>@saldo.IdPersona</td>
+                            <td>@saldo.IdStatusCuenta</td>
+                            <td>@saldo.IdTipoSaldoCuenta</td>
+                            <td>@saldo.SaldoAnterior</td>
+                            <td>@saldo.Debitos</td>
+                            <td>@saldo.Creditos</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p>No se encontraron resultados.</p>
+    }
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Color de fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }
+
+    .bg-white {
+        background-color: #ffffff; /* Fondo blanco para la tabla */
+    }
+
+    .text-black {
+        color: black; /* Texto negro para títulos */
+    }
+
+    .thead-dark {
+        background-color: #ffffff; /* Fondo claro para el encabezado de la tabla */
+        color: black; /* Texto negro para el encabezado de la tabla */
+    }
+
+    .btn-primary {
+        background-color: #2980b9; /* Azul para el botón de buscar */
+        border-color: #2980b9;
+    }
+
+    .btn-primary:hover {
+        background-color: #3498db; /* Azul más claro al pasar el ratón */
+        border-color: #3498db;
+    }
+
+    .table th {
+        text-align: center; /* Alinear el texto de los encabezados al centro */
+    }
+
+    .table td {
+        font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+        padding: 0.5rem; /* Relleno más pequeño */
+    }
+
+    .text-truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; /* Evitar que el texto se ajuste */
+    }
+</style>

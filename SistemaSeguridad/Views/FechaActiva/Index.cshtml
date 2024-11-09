@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Fecha Activa";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">@ViewData["Title"]</h2>
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="text-center">
+                    <div class="form-group mb-3">
+                        <label for="fechaInicio">Fecha de Inicio:</label>
+                        <input type="date" id="fechaInicio" class="form-control w-25 mx-auto" placeholder="Ingrese la fecha de inicio" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="fechaCierre">Fecha de Cierre:</label>
+                        <input type="date" id="fechaCierre" class="form-control w-25 mx-auto" placeholder="Ingrese la fecha de cierre" />
+                    </div>
+                    <button id="btnCerrar" class="btn btn-danger">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

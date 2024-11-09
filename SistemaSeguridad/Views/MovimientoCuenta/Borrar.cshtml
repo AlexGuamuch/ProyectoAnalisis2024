@@ -1,0 +1,108 @@
+﻿@model MovimientoCuentum
+
+@{
+    ViewData["Title"] = "Borrar Movimiento";
+}
+
+<div class="custom-background p-4">
+    <h2>¿Está seguro de que desea eliminar este movimiento?</h2>
+    <h4>Movimiento Cuenta</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Id Movimiento</dt>
+        <dd class="col-sm-10">@Model.IdMovimientoCuenta</dd>
+
+        <dt class="col-sm-2">Id Saldo Cuenta</dt>
+        <dd class="col-sm-10">@Model.IdSaldoCuenta</dd>
+
+        <dt class="col-sm-2">Tipo Movimiento</dt>
+        <dd class="col-sm-10">@Model.IdTipoMovimientoCxc</dd>
+
+        <dt class="col-sm-2">Fecha Movimiento</dt>
+        <dd class="col-sm-10">@Model.FechaMovimiento.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Valor Movimiento</dt>
+        <dd class="col-sm-10">@Model.ValorMovimiento</dd>
+
+        <dt class="col-sm-2">Valor Movimiento Pagado</dt>
+        <dd class="col-sm-10">@Model.ValorMovimientoPagado</dd>
+
+        <dt class="col-sm-2">Descripción</dt>
+        <dd class="col-sm-10">@Model.Descripcion</dd>
+
+        <dt class="col-sm-2">Fecha Creación</dt>
+        <dd class="col-sm-10">@Model.FechaCreacion.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-2">Usuario Creación</dt>
+        <dd class="col-sm-10">@Model.UsuarioCreacion</dd>
+    </dl>
+
+    <form asp-action="BorrarMovimiento">
+        <input type="hidden" asp-for="IdMovimientoCuenta" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Color de fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        padding: 20px; /* Espaciado interno */
+    }
+
+    .btn-primary {
+        background-color: #2980b9; /* Azul para el botón de exportar CSV */
+        border-color: #2980b9;
+    }
+
+    .btn-primary:hover {
+        background-color: #3498db; /* Azul más claro al pasar el ratón */
+        border-color: #3498db;
+    }
+
+    .btn-success {
+        background-color: #27ae60; /* Verde para el botón de crear */
+        border-color: #27ae60;
+    }
+
+    .btn-success:hover {
+        background-color: #2ecc71; /* Verde más claro al pasar el ratón */
+        border-color: #2ecc71;
+    }
+
+    .btn-info {
+        background-color: #3498db; /* Azul para el botón de editar */
+        border-color: #3498db;
+    }
+
+    .btn-info:hover {
+        background-color: #5dade2; /* Azul más claro al pasar el ratón */
+        border-color: #5dade2;
+    }
+
+    .btn-danger {
+        background-color: #e74c3c; /* Rojo para el botón de borrar */
+        border-color: #e74c3c;
+    }
+
+    .btn-danger:hover {
+        background-color: #ec7063; /* Rojo más claro al pasar el ratón */
+        border-color: #ec7063;
+    }
+
+    .btn-secondary {
+        background-color: #7f8c8d; /* Gris para el botón de cancelar */
+        border-color: #7f8c8d;
+    }
+
+    .btn-secondary:hover {
+        background-color: #95a5a6; /* Gris más claro al pasar el ratón */
+        border-color: #95a5a6;
+    }
+
+    .dl {
+        margin-bottom: 1rem; /* Espacio inferior en el dl */
+    }
+</style>

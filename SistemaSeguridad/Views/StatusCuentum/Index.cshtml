@@ -1,0 +1,77 @@
+﻿@model IEnumerable<StatusCuentum>
+
+@{
+    ViewData["Title"] = "Status Cuentas";
+}
+
+<!-- Contenedor principal -->
+<div class="custom-background p-4">
+
+    <!-- Títulos -->
+    <h1 class="mb-4 text-black">@ViewData["Title"]</h1>
+
+    <a asp-action="Crear" class="btn btn-success mb-4">Crear nuevo</a>
+    <a asp-action="ExportarCSV" class="btn btn-primary mb-4">Exportar a CSV</a>
+    <!-- Tabla -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered bg-white">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" style="width: 150px;">Acciones</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha Creación</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var statusCuentum in Model)
+                {
+                    <tr>
+                        <td class="text-center" style="white-space: nowrap;">
+                            <a class="btn btn-sm btn-info" asp-action="Editar" asp-route-IdStatusCuenta="@statusCuentum.IdStatusCuenta">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a class="btn btn-sm btn-danger" asp-action="Borrar" asp-route-IdStatusCuenta="@statusCuentum.IdStatusCuenta">
+                                <i class="fas fa-edit"></i> Borrar
+                            </a>
+                        </td>
+                        <td class="text-truncate" style="max-width: 200px;">@statusCuentum.Nombre</td>
+                        <td class="text-truncate" style="max-width: 200px;">
+                            @statusCuentum.FechaCreacion.ToString("dd/MM/yyyy")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Color de fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }
+
+    .bg-white {
+        background-color: #ffffff; /* Fondo blanco para la tabla */
+    }
+
+    .text-black {
+        color: black; /* Texto negro para títulos */
+    }
+
+    .thead-dark {
+        background-color: #ffffff; /* Fondo claro para el encabezado de la tabla */
+        color: black; /* Texto negro para el encabezado de la tabla */
+    }
+
+    .table th {
+        text-align: center; /* Alinear el texto de los encabezados al centro */
+    }
+
+    .table td {
+        font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+        padding: 0.5rem; /* Relleno más pequeño */
+    }
+</style>

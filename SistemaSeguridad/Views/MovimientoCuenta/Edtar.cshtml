@@ -1,0 +1,87 @@
+﻿@model MovimientoCuentum
+
+@{
+    ViewData["Title"] = "Editar Movimiento";
+}
+
+<div class="custom-background p-4">
+    <h2>Editar Movimiento</h2>
+
+    <form asp-action="Editar">
+        <input type="hidden" asp-for="IdMovimientoCuenta" />
+
+        <div class="form-group">
+            <label asp-for="IdSaldoCuenta"></label>
+            <input asp-for="IdSaldoCuenta" class="form-control" />
+            <span asp-validation-for="IdSaldoCuenta" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="IdTipoMovimientoCxc"></label>
+            <input asp-for="IdTipoMovimientoCxc" class="form-control" />
+            <span asp-validation-for="IdTipoMovimientoCxc" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="FechaMovimiento"></label>
+            <input asp-for="FechaMovimiento" type="date" class="form-control" />
+            <span asp-validation-for="FechaMovimiento" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ValorMovimiento"></label>
+            <input asp-for="ValorMovimiento" class="form-control" />
+            <span asp-validation-for="ValorMovimiento" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ValorMovimientoPagado"></label>
+            <input asp-for="ValorMovimientoPagado" class="form-control" />
+            <span asp-validation-for="ValorMovimientoPagado" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Descripcion"></label>
+            <textarea asp-for="Descripcion" class="form-control"></textarea>
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-info">Actualizar Movimiento</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Color de fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        padding: 20px; /* Espaciado interno */
+    }
+
+    .btn-info {
+        background-color: #3498db; /* Azul para el botón de actualizar */
+        border-color: #3498db;
+    }
+
+    .btn-info:hover {
+        background-color: #5dade2; /* Azul más claro al pasar el ratón */
+        border-color: #5dade2;
+    }
+
+    .btn-secondary {
+        background-color: #7f8c8d; /* Gris para el botón de cancelar */
+        border-color: #7f8c8d;
+    }
+
+    .btn-secondary:hover {
+        background-color: #95a5a6; /* Gris más claro al pasar el ratón */
+        border-color: #95a5a6;
+    }
+</style>

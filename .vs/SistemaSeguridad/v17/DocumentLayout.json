@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\proyectoanalisis2024-main\\sistemaseguridad\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\proyectoanalisis2024-main\\sistemaseguridad\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\proyectoanalisis2024-main\\sistemaseguridad\\servicios\\repositorysaldocuentum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\servicios\\repositorysaldocuentum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\appsettings.Development.json",
+              "RelativeToolTip": "SistemaSeguridad\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-09T20:10:42.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\appsettings.json",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\appsettings.json",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\appsettings.json",
+              "RelativeToolTip": "SistemaSeguridad\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-09T20:10:40.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RepositorySaldoCuentum.cs",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\Servicios\\RepositorySaldoCuentum.cs",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\Servicios\\RepositorySaldoCuentum.cs",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\Servicios\\RepositorySaldoCuentum.cs",
+              "RelativeToolTip": "SistemaSeguridad\\Servicios\\RepositorySaldoCuentum.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAkwCwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T23:53:22.075Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

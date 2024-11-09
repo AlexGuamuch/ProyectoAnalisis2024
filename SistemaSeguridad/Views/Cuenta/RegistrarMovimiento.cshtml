@@ -1,0 +1,113 @@
+@model MovimientoCuentum
+@{
+    ViewData["Title"] = "Registrar Movimiento";
+}
+
+<!-- Contenedor principal -->
+<div class="custom-background p-4">
+
+    <!-- Título -->
+    <h1 class="text-black mb-4">@ViewData["Title"]</h1>
+
+    <!-- Alertas de validación y éxito -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var modelState in ViewData.ModelState.Values)
+                {
+                    foreach (var error in modelState.Errors)
+                    {
+                        <li>@error.ErrorMessage</li>
+                    }
+                }
+            </ul>
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <!-- Formulario -->
+    <form asp-action="RegistrarMovimiento" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="IdSaldoCuenta">Cliente</label>
+            <select asp-for="IdSaldoCuenta" asp-items="ViewBag.Clientes" class="form-control">
+                <option value="">-- Seleccione un cliente --</option>
+            </select>
+            <span asp-validation-for="IdSaldoCuenta" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="IdTipoMovimientoCxc">Tipo de Movimiento</label>
+            <select asp-for="IdTipoMovimientoCxc" class="form-control">
+                <option value="1">Abono</option>
+                <option value="2">Cargo</option>
+            </select>
+            <span asp-validation-for="IdTipoMovimientoCxc" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ValorMovimiento">Valor del Movimiento</label>
+            <input asp-for="ValorMovimiento" class="form-control" />
+            <span asp-validation-for="ValorMovimiento" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Descripcion">Descripción</label>
+            <input asp-for="Descripcion" class="form-control" />
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .alert {
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+        background-color: #2980b9;
+        border-color: #2980b9;
+    }
+
+        .btn-primary:hover {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+
+    .text-black {
+        color: black;
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+</style>

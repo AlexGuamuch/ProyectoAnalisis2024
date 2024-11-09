@@ -1,0 +1,85 @@
+@model SistemaSeguridad.Models.UsuarioPregunta
+
+@{
+    ViewData["Title"] = "Ingresar Preguntas de Seguridad";
+}
+
+<!-- Contenedor Principal -->
+<div class="custom-background p-4">
+
+    <!-- Títulos -->
+    <h1 class="mb-4 text-black">@ViewData["Title"]</h1>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-warning">
+            @ViewBag.Message
+        </div>
+    }
+
+    <!-- Formulario -->
+    <form asp-action="Crear" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label>1. ¿Nombre de tu primera mascota?</label>
+            <input type="text" class="form-control" name="Respuesta1" required />
+        </div>
+        <div class="form-group">
+            <label>2. ¿Lugar de nacimiento de tu madre?</label>
+            <input type="text" class="form-control" name="Respuesta2" required />
+        </div>
+        <div class="form-group">
+            <label>3. ¿Nombre del catedrático del curso de Análisis de Sistemas II?</label>
+            <input type="text" class="form-control" name="Respuesta3" required />
+        </div>
+        <div class="form-group">
+            <label>4. ¿Nombre de tu curso preferido?</label>
+            <input type="text" class="form-control" name="Respuesta4" required />
+        </div>
+
+        <!-- Botón -->
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Color de fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        padding: 20px; /* Espaciado interno */
+    }
+
+    .text-black {
+        color: black; /* Texto negro para títulos */
+    }
+
+    .form-group label {
+        font-weight: bold; /* Etiquetas en negrita */
+        margin-bottom: 0.5rem; /* Espaciado inferior */
+    }
+
+    .form-control {
+        border-radius: 5px; /* Bordes redondeados para los inputs */
+        padding: 0.5rem; /* Espaciado interno */
+        margin-bottom: 1rem; /* Espaciado inferior entre inputs */
+    }
+
+    .btn-success {
+        background-color: #27ae60; /* Verde para el botón de guardar */
+        border-color: #27ae60;
+    }
+
+        .btn-success:hover {
+            background-color: #2ecc71; /* Verde más claro al pasar el ratón */
+            border-color: #2ecc71;
+        }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

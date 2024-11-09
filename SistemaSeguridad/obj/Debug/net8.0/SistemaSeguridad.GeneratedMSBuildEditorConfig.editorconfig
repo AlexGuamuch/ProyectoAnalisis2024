@@ -1,0 +1,379 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SistemaSeguridad
+build_property.RootNamespace = SistemaSeguridad
+build_property.ProjectDir = C:\Users\guamu\source\repos\ProyectoAnalisis2024-main\SistemaSeguridad\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\guamu\source\repos\ProyectoAnalisis2024-main\SistemaSeguridad
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Cuenta/CuentasPorCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VlbnRhXEN1ZW50YXNQb3JDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Cuenta/RegistrarMovimiento.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VlbnRhXFJlZ2lzdHJhck1vdmltaWVudG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Cuenta/TodasLasCuentas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VlbnRhXFRvZGFzTGFzQ3VlbnRhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/DocumentoPersona/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRvUGVyc29uYVxCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/DocumentoPersona/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRvUGVyc29uYVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/DocumentoPersona/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRvUGVyc29uYVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/DocumentoPersona/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRvUGVyc29uYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Empresa/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Empresa/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Empresa/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Empresa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/EstadoCivil/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvQ2l2aWxcQm9ycmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/EstadoCivil/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvQ2l2aWxcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/EstadoCivil/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvQ2l2aWxcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/EstadoCivil/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWRvQ2l2aWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/FechaActiva/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVjaGFBY3RpdmFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Genero/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJvXEJvcnJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Genero/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJvXENyZWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Genero/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJvXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Genero/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VuZXJvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Menu/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Menu/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Menu/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Menu/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Modulo/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kdWxvXEJvcnJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Modulo/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kdWxvXENyZWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Modulo/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kdWxvXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Modulo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kdWxvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/MovimientoCuenta/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aW1pZW50b0N1ZW50YVxCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/MovimientoCuenta/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aW1pZW50b0N1ZW50YVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/MovimientoCuenta/Edtar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aW1pZW50b0N1ZW50YVxFZHRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/MovimientoCuenta/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aW1pZW50b0N1ZW50YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Opcion/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BjaW9uXEJvcnJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Opcion/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BjaW9uXENyZWFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Opcion/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BjaW9uXEVkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Opcion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3BjaW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Role/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Role/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Role/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Role/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/SaldoCuentum/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZG9DdWVudHVtXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Shared/_LinksLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MaW5rc0xvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/StatusCuentum/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzQ3VlbnR1bVxCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/StatusCuentum/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzQ3VlbnR1bVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/StatusCuentum/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzQ3VlbnR1bVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/StatusCuentum/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzQ3VlbnR1bVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/StatusUsuario/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzVXN1YXJpb1xCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/StatusUsuario/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzVXN1YXJpb1xDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/StatusUsuario/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzVXN1YXJpb1xFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/StatusUsuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHVzVXN1YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Sucursal/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VjdXJzYWxcQm9ycmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Sucursal/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VjdXJzYWxcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Sucursal/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VjdXJzYWxcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Sucursal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VjdXJzYWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoDocumento/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0RvY3VtZW50b1xCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoDocumento/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0RvY3VtZW50b1xDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoDocumento/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0RvY3VtZW50b1xFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoDocumento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb0RvY3VtZW50b1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoMovimientoCxc/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01vdmltaWVudG9DeGNcQm9ycmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoMovimientoCxc/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01vdmltaWVudG9DeGNcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoMovimientoCxc/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01vdmltaWVudG9DeGNcRWRpdGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoMovimientoCxc/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01vdmltaWVudG9DeGNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoSaldoCuentum/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1NhbGRvQ3VlbnR1bVxCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoSaldoCuentum/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1NhbGRvQ3VlbnR1bVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoSaldoCuentum/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1NhbGRvQ3VlbnR1bVxFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/TipoSaldoCuentum/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1NhbGRvQ3VlbnR1bVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/UsuarioLogin/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0xvZ2luXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/UsuarioLogin/_layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb0xvZ2luXF9sYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/UsuarioPregunta/UsuarioPregunta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1ByZWd1bnRhXFVzdWFyaW9QcmVndW50YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/UsuarioRole/Crear.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1JvbGVcQ3JlYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/UsuarioRole/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1JvbGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Usuario/Borrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xCb3JyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Usuario/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Usuario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Usuario/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Usuario/Perfil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xQZXJmaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Usuario/Registro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xSZWdpc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-gr57umf8ez

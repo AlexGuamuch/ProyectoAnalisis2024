@@ -1,0 +1,135 @@
+﻿@model IEnumerable<DocumentoPersona>
+
+@{
+    ViewData["Title"] = "Listado de Documentos de Personas";
+}
+
+<!-- Contenedor principal -->
+<div class="custom-background p-4">
+
+    <!-- Títulos -->
+    <h1 class="mb-4 text-black">@ViewData["Title"]</h1>
+
+    <!-- Botones -->
+    <a asp-action="Crear" class="btn btn-success mb-4">Crear nuevo</a>
+    <a asp-action="ExportarCSV" class="btn btn-primary mb-4">Exportar a CSV</a>
+
+    <!-- Tabla -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered bg-white">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" style="width: 150px;">Acciones</th>
+                    <th scope="col">Id Persona</th> 
+                    <th scope="col">Tipo de Documento</th>
+                    <th scope="col">Número de Documento</th>
+                    <th scope="col">Fecha Modificacion</th>
+                    <th scope="col">Usuario de Creación</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var documento in Model)
+                {
+                    <tr>
+                        <td class="text-center" style="white-space: nowrap;">
+                            
+                            <a class="btn btn-sm btn-danger" asp-action="Borrar" asp-route-IdDocumento="@documento.IdTipoDocumento" onclick="return confirm('¿Estás seguro de que deseas eliminar este documento?');">
+                                <i class="fas fa-trash-alt"></i> Borrar
+                            </a>
+                        </td>
+
+
+                        <td class="text-truncate" style="max-width: 200px;">@documento.IdPersona</td> 
+                        <td class="text-truncate" style="max-width: 200px;">@documento.IdTipoDocumento</td>
+                        <td class="text-truncate" style="max-width: 200px;">@documento.NoDocumento</td>
+                        <td class="text-truncate" style="max-width: 200px;">@(documento.FechaModificacion.HasValue ? documento.FechaModificacion.Value.ToString("dd/MM/yyyy") : "N/A")</td>
+                        <td class="text-truncate" style="max-width: 200px;">@documento.UsuarioCreacion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Color de fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }
+
+    .bg-white {
+        background-color: #ffffff; /* Fondo blanco para la tabla */
+    }
+
+    .text-black {
+        color: black; /* Texto negro para títulos */
+    }
+
+    .thead-dark {
+        background-color: #ffffff; /* Fondo claro para el encabezado de la tabla */
+        color: black; /* Texto negro para el encabezado de la tabla */
+    }
+
+    .btn-primary {
+        background-color: #2980b9; /* Azul para el botón de exportar */
+        border-color: #2980b9;
+    }
+
+        .btn-primary:hover {
+            background-color: #3498db; /* Azul más claro al pasar el ratón */
+            border-color: #3498db;
+        }
+
+    .btn-success {
+        background-color: #27ae60; /* Verde para el botón de crear */
+        border-color: #27ae60;
+    }
+
+        .btn-success:hover {
+            background-color: #2ecc71; /* Verde más claro al pasar el ratón */
+            border-color: #2ecc71;
+        }
+
+    .btn-info {
+        background-color: #3498db; /* Azul para el botón de editar */
+        border-color: #3498db;
+    }
+
+        .btn-info:hover {
+            background-color: #5dade2; /* Azul más claro al pasar el ratón */
+            border-color: #5dade2;
+        }
+
+    .btn-danger {
+        background-color: #e74c3c; /* Rojo para el botón de borrar */
+        border-color: #e74c3c;
+    }
+
+        .btn-danger:hover {
+            background-color: #ec7063; /* Rojo más claro al pasar el ratón */
+            border-color: #ec7063;
+        }
+
+    .btn-sm {
+        font-size: 0.75rem; /* Tamaño de fuente más pequeño */
+        padding: 0.2rem 0.4rem; /* Relleno pequeño */
+        border-radius: 0.2rem; /* Bordes redondeados pequeños */
+    }
+
+    .table th {
+        text-align: center; /* Alinear el texto de los encabezados al centro */
+    }
+
+    .text-truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; /* Evitar que el texto se ajuste */
+    }
+
+    .table td {
+        font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+        padding: 0.5rem; /* Relleno más pequeño */
+    }
+</style>

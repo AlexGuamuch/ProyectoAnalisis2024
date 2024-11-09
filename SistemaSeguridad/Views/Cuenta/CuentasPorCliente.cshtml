@@ -1,0 +1,103 @@
+@model IEnumerable<SaldoCuentum>
+
+@{
+    ViewData["Title"] = "Cuentas por Cliente";
+}
+
+<!-- Contenedor principal -->
+<div class="custom-background p-4">
+
+    <!-- Título y Botón -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-black">@ViewData["Title"]</h1>
+        <a asp-action="Registrar" class="btn btn-success">Registrar</a>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered bg-white">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID Cuenta</th>
+                    <th scope="col">Saldo Anterior</th>
+                    <th scope="col">Débitos</th>
+                    <th scope="col">Créditos</th>
+                    <th scope="col">Saldo Actual</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cuenta in Model)
+                {
+                    <tr>
+                        <td>@cuenta.IdSaldoCuenta</td>
+                        <td>@cuenta.SaldoAnterior</td>
+                        <td>@cuenta.Debitos</td>
+                        <td>@cuenta.Creditos</td>
+                        <td>@(cuenta.SaldoAnterior + cuenta.Creditos - cuenta.Debitos)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .bg-white {
+        background-color: #ffffff;
+    }
+
+    .thead-dark {
+        background-color: #ffffff;
+        color: black;
+    }
+
+    .btn-success {
+        background-color: #27ae60;
+        border-color: #27ae60;
+    }
+
+        .btn-success:hover {
+            background-color: #2ecc71;
+            border-color: #2ecc71;
+        }
+
+    .table th {
+        text-align: center;
+    }
+
+    .table td {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+    }
+
+    .table-responsive {
+        margin-top: 1rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .justify-content-between {
+        justify-content: space-between;
+    }
+
+    .align-items-center {
+        align-items: center;
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+</style>

@@ -1,0 +1,194 @@
+﻿@model Empresa
+
+@{
+	ViewData["Title"] = "Crear Empresa";
+}
+<div class="custom-background p-4">
+    <h1>Crear Empresa</h1>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <form asp-action="Crear">
+        <div class="card">
+            <div class="card-header">
+                <h5>Datos generales</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-2">
+                    <label asp-for="Nombre" class="form-label"></label>
+                    <input type="text" asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label asp-for="Direccion" class="form-label"></label>
+                    <input type="text" asp-for="Direccion" class="form-control" />
+                    <span asp-validation-for="Direccion" class="text-danger"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label asp-for="Nit" class="form-label"></label>
+                    <input type="text" asp-for="Nit" class="form-control" />
+                    <span asp-validation-for="Nit" class="text-danger"></span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5>Parametros</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-2">
+                    <label asp-for="PasswordCantidadMayusculas" class="form-label"></label>
+                    <input type="text" asp-for="PasswordCantidadMayusculas" class="form-control" />
+                    <span asp-validation-for="PasswordCantidadMayusculas" class="text-danger"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label asp-for="PasswordCantidadMinusculas" class="form-label"></label>
+                    <input type="text" asp-for="PasswordCantidadMinusculas" class="form-control" />
+                    <span asp-validation-for="PasswordCantidadMinusculas" class="text-danger"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label asp-for="PasswordCantidadCaracteresEspeciales" class="form-label"></label>
+                    <input type="text" asp-for="PasswordCantidadCaracteresEspeciales" class="form-control" />
+                    <span asp-validation-for="PasswordCantidadCaracteresEspeciales" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="PasswordCantidadCaducidadDias" class="form-label"></label>
+                    <input type="text" asp-for="PasswordCantidadCaducidadDias" class="form-control" />
+                    <span asp-validation-for="PasswordCantidadCaducidadDias" class="text-danger"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label asp-for="PasswordLargo" class="form-label"></label>
+                    <input type="text" asp-for="PasswordLargo" class="form-control" />
+                    <span asp-validation-for="PasswordLargo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label asp-for="PasswordIntentosAntesDeBloquear" class="form-label"></label>
+                    <input type="text" asp-for="PasswordIntentosAntesDeBloquear" class="form-control" />
+                    <span asp-validation-for="PasswordIntentosAntesDeBloquear" class="text-danger"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label asp-for="PasswordCantidadNumeros" class="form-label"></label>
+                    <input type="text" asp-for="PasswordCantidadNumeros" class="form-control" />
+                    <span asp-validation-for="PasswordCantidadNumeros" class="text-danger"></span>
+                </div>
+
+                <div class="mb-2">
+                    <label asp-for="PasswordCantidadPreguntasValidar" class="form-label"></label>
+                    <input type="text" asp-for="PasswordCantidadPreguntasValidar" class="form-control" />
+                    <span asp-validation-for="PasswordCantidadPreguntasValidar" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Enviar</button>
+                <a class="btn btn-secundary" asp-action="Index">Cancelar</a>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+<style>
+    .custom-background {
+        background-color: #ffffff; /* Color de fondo blanco */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        padding: 20px; /* Espaciado interno */
+    }
+
+    .bg-white {
+        background-color: #ffffff; /* Fondo blanco para la tabla */
+    }
+
+    .text-black {
+        color: black; /* Texto negro para títulos */
+    }
+
+    .thead-dark {
+        background-color: #f8f9fa; /* Fondo claro para el encabezado de la tabla */
+        color: black; /* Texto negro para el encabezado de la tabla */
+    }
+
+    .btn-primary {
+        background-color: #2980b9; /* Azul para el botón de exportar CSV */
+        border-color: #2980b9;
+    }
+
+        .btn-primary:hover {
+            background-color: #3498db; /* Azul más claro al pasar el ratón */
+            border-color: #3498db;
+        }
+
+    .btn-success {
+        background-color: #27ae60; /* Verde para el botón de crear */
+        border-color: #27ae60;
+    }
+
+        .btn-success:hover {
+            background-color: #2ecc71; /* Verde más claro al pasar el ratón */
+            border-color: #2ecc71;
+        }
+
+    .btn-info {
+        background-color: #3498db; /* Azul para el botón de editar */
+        border-color: #3498db;
+    }
+
+        .btn-info:hover {
+            background-color: #5dade2; /* Azul más claro al pasar el ratón */
+            border-color: #5dade2;
+        }
+
+    .btn-danger {
+        background-color: #e74c3c; /* Rojo para el botón de borrar */
+        border-color: #e74c3c;
+    }
+
+        .btn-danger:hover {
+            background-color: #ec7063; /* Rojo más claro al pasar el ratón */
+            border-color: #ec7063;
+        }
+
+    .btn-secondary {
+        background-color: #7f8c8d; /* Gris para el botón de exportar a PDF */
+        border-color: #7f8c8d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #95a5a6; /* Gris más claro al pasar el ratón */
+            border-color: #95a5a6;
+        }
+
+    .btn-sm {
+        font-size: 0.75rem; /* Tamaño de fuente más pequeño */
+        padding: 0.2rem 0.4rem; /* Relleno pequeño */
+        border-radius: 0.2rem; /* Bordes redondeados pequeños */
+    }
+
+    .table th {
+        text-align: center; /* Alinear el texto de los encabezados al centro */
+    }
+
+    .text-truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; /* Evitar que el texto se ajuste */
+    }
+
+    .table td {
+        font-size: 0.875rem; /* Tamaño de fuente más pequeño */
+        padding: 0.5rem; /* Relleno más pequeño */
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
