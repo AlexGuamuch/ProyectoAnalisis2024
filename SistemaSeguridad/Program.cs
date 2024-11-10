@@ -41,6 +41,7 @@ builder.Services.AddTransient<IRepositoryMenu, RepositoryMenu>();
 builder.Services.AddTransient<IUserStore<UsuarioPrueba>, UsuarioStore>();
 builder.Services.AddScoped<IRepositoryUsuarioPregunta, UsuarioPreguntaRepository>();
 builder.Services.AddTransient<SignInManager<UsuarioPrueba>>();
+builder.Services.AddTransient<CierreService>();
 builder.Services.AddIdentityCore<UsuarioPrueba>(opciones =>
 {
 	opciones.Password.RequireDigit = false; // Desactiva validaciones predeterminadas si es necesario
