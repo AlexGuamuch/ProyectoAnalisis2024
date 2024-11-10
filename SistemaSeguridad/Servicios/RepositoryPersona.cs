@@ -10,6 +10,8 @@ namespace SistemaSeguridad.Servicios
     {
         Task Actualizar(Persona persona);
         Task Borrar(int idPersona);
+        Task<IEnumerable<Persona>> BuscarPorDpi(string noDocumento);
+        Task<IEnumerable<Persona>> BuscarPorNombre(string nombre);
         Task Crear(Persona persona);
         Task<IEnumerable<Persona>> Obtener();
         Task<IEnumerable<PersonaViewModel>> ObtenerClientes();
@@ -82,6 +84,21 @@ namespace SistemaSeguridad.Servicios
         {
             using var connection = new SqlConnection(connectionString);
             await connection.ExecuteAsync("delete from PERSONA where IdPersona= @idPersona", new { idPersona });
+        }
+
+        public async Task<IEnumerable<Persona>> BuscarPorNombre(string nombre)
+        {
+            using var connection = new SqlConnection(connectionString);
+            var query = @"select * from PERSONA WHERE Nombre LIKE '%' + @Nombre + '%' or Apellido LIKE '%' + @Nombre + '%' ";
+            return await connection.QueryAsync<Persona>(query, new { Nombre = nombre });
+        }
+
+
+        public async Task<IEnumerable<Persona>> BuscarPorDpi(string noDocumento)
+        {
+            using var connection = new SqlConnection(connectionString);
+            var query = @"select p.* from PERSONA p inner join DOCUMENTO_PERSONA dp on p.IdPersona = dp.IdPersona where dp.NoDocumento = @NoDocumento";
+            return await connection.QueryAsync<Persona>(query, new { NoDocumento = noDocumento });
         }
 
     }

@@ -12,6 +12,7 @@ namespace SistemaSeguridad.Servicios
         Task Actualizar(MovimientoCuentum movimientoCuenta);
         Task Borrar(int idMovimientoCuenta);
         Task ActualizarGeneral(MovimientoCuentum movimientoCuenta);
+        Task<IEnumerable<MovimientoCuentum>> ObtenerMovimientosId(int idSaldoCuenta);
     }
 
     public class RepositoryMovimientoCuenta : IRepositoryMovimientoCuenta
@@ -105,6 +106,20 @@ namespace SistemaSeguridad.Servicios
         public Task ActualizarGeneral(MovimientoCuentum movimientoCuenta)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<MovimientoCuentum>> ObtenerMovimientosId(int idSaldoCuenta)
+        {
+            using var connection = new SqlConnection(connectionString);
+            var query = @"select tmc.Nombre as MovimientoNombre, tm.FechaMovimiento,
+                            tm.ValorMovimiento,
+                            tm.ValorMovimientoPagado,
+                            tm.Descripcion
+                            from SALDO_CUENTA sc
+                            inner join MOVIMIENTO_CUENTA tm on sc.IdSaldoCuenta = tm.IdSaldoCuenta
+                            left join TIPO_MOVIMIENTO_CXC tmc on tm.IdTipoMovimientoCXC = tmc.IdTipoMovimientoCXC
+                            where sc.IdSaldoCuenta = @IdSaldoCuenta";
+            return await connection.QueryAsync<MovimientoCuentum>(query, new { idSaldoCuenta = idSaldoCuenta });
         }
     }
 }

@@ -182,8 +182,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxCb3JyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Busqueda.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxCdXNxdWVkYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxDcmVhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Cuentas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxDdWVudGFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Editar.cshtml]
@@ -192,6 +200,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Persona/Movimientos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxNb3ZpbWllbnRvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/guamu/source/repos/ProyectoAnalisis2024-main/SistemaSeguridad/Views/Role/Borrar.cshtml]

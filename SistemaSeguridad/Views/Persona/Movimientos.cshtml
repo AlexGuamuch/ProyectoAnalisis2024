@@ -1,0 +1,113 @@
+﻿@model MovimientoViewModel
+
+@{
+    ViewData["Title"] = "Listado de Movimientos";
+}
+
+<div class="custom-background p-4">
+
+    <h1 class="mb-4 text-black">@ViewData["Title"]</h1>
+
+    <h2>Movimientos de la Cuenta</h2>
+
+    <a asp-action="Crear" class="btn btn-success mb-4">Regresar</a>
+
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered bg-white">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Fecha Movimiento</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Pagado</th>
+                    <th scope="col">Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movimiento in Model.MovimientoCuenta)
+                {
+                    <tr>
+                        <td>@movimiento.MovimientoNombre</td>
+                        <td>@movimiento.FechaMovimiento</td>
+                        <td>@movimiento.ValorMovimiento</td>
+                        <td>@movimiento.ValorMovimientoPagado</td>
+                        <td>@movimiento.Descripcion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .bg-white {
+        background-color: #ffffff;
+    }
+
+    .text-white {
+        color: #ffffff;
+    }
+
+    .btn-primary {
+        background-color: #2980b9;
+        border-color: #2980b9;
+    }
+
+        .btn-primary:hover {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+
+    .btn-success {
+        background-color: #27ae60;
+        border-color: #27ae60;
+    }
+
+        .btn-success:hover {
+            background-color: #2ecc71;
+            border-color: #2ecc71;
+        }
+
+    .btn-info {
+        background-color: #3498db;
+        border-color: #3498db;
+    }
+
+        .btn-info:hover {
+            background-color: #5dade2;
+            border-color: #5dade2;
+        }
+
+    .btn-danger {
+        background-color: #e74c3c;
+        border-color: #e74c3c;
+    }
+
+        .btn-danger:hover {
+            background-color: #ec7063;
+            border-color: #ec7063;
+        }
+
+    .btn-sm {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.2rem;
+    }
+
+    .table th {
+        text-align: center;
+    }
+
+    .table td {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+    }
+</style>

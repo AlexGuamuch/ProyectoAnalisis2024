@@ -32,4 +32,7 @@ public partial class MovimientoCuentum
     public virtual SaldoCuentum IdSaldoCuentaNavigation { get; set; }
 
     public virtual TipoMovimientoCxc IdTipoMovimientoCxcNavigation { get; set; }
+
+    public string MovimientoNombre { get; set; }
+
 }

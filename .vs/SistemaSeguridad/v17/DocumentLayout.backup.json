@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\guamu\\Desktop\\ProyectoAnalisis2024-main\\",
+  "WorkspaceRootPath": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\desktop\\proyectoanalisis2024-main\\sistemaseguridad\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\proyectoanalisis2024-main\\sistemaseguridad\\views\\persona\\movimientos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\views\\persona\\movimientos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\desktop\\proyectoanalisis2024-main\\sistemaseguridad\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\desktop\\proyectoanalisis2024-main\\sistemaseguridad\\servicios\\repositorysaldocuentum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\servicios\\repositorysaldocuentum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|c:\\users\\guamu\\source\\repos\\proyectoanalisis2024-main\\sistemaseguridad\\views\\persona\\cuentas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E0281D1-CCBD-4C35-A822-9E0D849DD25D}|SistemaSeguridad\\SistemaSeguridad.csproj|solutionrelative:sistemaseguridad\\views\\persona\\cuentas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,46 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\guamu\\Desktop\\ProyectoAnalisis2024-main\\SistemaSeguridad\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "SistemaSeguridad\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\guamu\\Desktop\\ProyectoAnalisis2024-main\\SistemaSeguridad\\appsettings.Development.json",
-              "RelativeToolTip": "SistemaSeguridad\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-09T20:10:42.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\guamu\\Desktop\\ProyectoAnalisis2024-main\\SistemaSeguridad\\appsettings.json",
-              "RelativeDocumentMoniker": "SistemaSeguridad\\appsettings.json",
-              "ToolTip": "C:\\Users\\guamu\\Desktop\\ProyectoAnalisis2024-main\\SistemaSeguridad\\appsettings.json",
-              "RelativeToolTip": "SistemaSeguridad\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-09T20:10:40.754Z",
+              "Title": "Movimientos.cshtml",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\Views\\Persona\\Movimientos.cshtml",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\Views\\Persona\\Movimientos.cshtml",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\Views\\Persona\\Movimientos.cshtml",
+              "RelativeToolTip": "SistemaSeguridad\\Views\\Persona\\Movimientos.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T22:41:20.404Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RepositorySaldoCuentum.cs",
-              "DocumentMoniker": "C:\\Users\\guamu\\Desktop\\ProyectoAnalisis2024-main\\SistemaSeguridad\\Servicios\\RepositorySaldoCuentum.cs",
-              "RelativeDocumentMoniker": "SistemaSeguridad\\Servicios\\RepositorySaldoCuentum.cs",
-              "ToolTip": "C:\\Users\\guamu\\Desktop\\ProyectoAnalisis2024-main\\SistemaSeguridad\\Servicios\\RepositorySaldoCuentum.cs",
-              "RelativeToolTip": "SistemaSeguridad\\Servicios\\RepositorySaldoCuentum.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAkwCwAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T23:53:22.075Z",
-              "EditorCaption": ""
+              "DocumentIndex": 1,
+              "Title": "Cuentas.cshtml",
+              "DocumentMoniker": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\Views\\Persona\\Cuentas.cshtml",
+              "RelativeDocumentMoniker": "SistemaSeguridad\\Views\\Persona\\Cuentas.cshtml",
+              "ToolTip": "C:\\Users\\guamu\\source\\repos\\ProyectoAnalisis2024-main\\SistemaSeguridad\\Views\\Persona\\Cuentas.cshtml",
+              "RelativeToolTip": "SistemaSeguridad\\Views\\Persona\\Cuentas.cshtml",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAAAHgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T22:37:13.967Z"
             }
           ]
         }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using NuGet.Protocol.Core.Types;
 using SistemaSeguridad.Models;
 using SistemaSeguridad.Servicios;
 using System.Text;
@@ -15,17 +16,23 @@ namespace SistemaSeguridad.Controllers
         private readonly IServicioUsuarios servicioUsuarios;
         private readonly IRepositoryGenero repositoryGenero;
         private readonly IRepositoryEstadoCivil repositoryEstadoCivil;
+        private readonly IRepositorySaldoCuenta repositorySaldoCuenta;
+        private readonly IRepositoryMovimientoCuenta repositoryMovimientoCuenta;
 
         public PersonaController(
             IRepositoryPersona repositoryPersona,
             IServicioUsuarios servicioUsuarios,
             IRepositoryGenero repositoryGenero,
-            IRepositoryEstadoCivil repositoryEstadoCivil)
+            IRepositoryEstadoCivil repositoryEstadoCivil,
+            IRepositorySaldoCuenta repositorySaldoCuenta,
+            IRepositoryMovimientoCuenta repositoryMovimientoCuenta)
         {
             this.repositoryPersona = repositoryPersona;
             this.servicioUsuarios = servicioUsuarios;
             this.repositoryGenero = repositoryGenero;
             this.repositoryEstadoCivil = repositoryEstadoCivil;
+            this.repositorySaldoCuenta = repositorySaldoCuenta;
+            this.repositoryMovimientoCuenta = repositoryMovimientoCuenta;
         }
 
         public async Task<IActionResult> Index()
@@ -174,5 +181,78 @@ namespace SistemaSeguridad.Controllers
                 Text = ec.Nombre // Cambia 'Nombre' por la propiedad que desees mostrar
             }).ToList();
         }
+
+        [HttpGet]
+        public IActionResult Busqueda()
+        {
+            return View(Enumerable.Empty<Persona>());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Busqueda(string tipoBusqueda, string valorBusqueda)
+        {
+            if (string.IsNullOrWhiteSpace(valorBusqueda))
+            {
+                ModelState.AddModelError(string.Empty, "Por favor, ingrese un valor de búsqueda.");
+                return View(Enumerable.Empty<Persona>());
+            }
+            IEnumerable<Persona> resultados;
+
+            switch (tipoBusqueda)
+            {
+                case "Nombre":
+                    resultados = await repositoryPersona.BuscarPorNombre(valorBusqueda);
+                    break;
+                case "Identificacion":
+                    resultados = await repositoryPersona.BuscarPorDpi(valorBusqueda);
+                    break;
+                default:
+                    ModelState.AddModelError(string.Empty, "Tipo de búsqueda no válido.");
+                    return View(Enumerable.Empty<Persona>());
+            }
+            return View(resultados);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Cuentas(int idPersona)
+        {
+            var persona = await repositoryPersona.ObtenerPorId(idPersona);
+            if (persona is null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var saldoCuentas = await repositorySaldoCuenta.ObtenerCuentasId(idPersona);
+
+            var viewModel = new SaldoCuentumViewModel
+            {
+                Persona = persona,
+                SaldoCuenta = saldoCuentas
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Movimientos(int idSaldoCuenta)
+        {
+            var saldoCuenta = await repositorySaldoCuenta.ObtenerPorId(idSaldoCuenta);
+            if (saldoCuenta is null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var movimientoCuenta = await repositoryMovimientoCuenta.ObtenerMovimientosId(idSaldoCuenta);
+
+            var viewModel = new MovimientoViewModel
+            {
+                SaldoCuentum = saldoCuenta,
+                MovimientoCuenta = movimientoCuenta
+            };
+
+            return View(viewModel);
+        }
+
+
     }
 }

@@ -34,4 +34,8 @@ public partial class SaldoCuentum
     public virtual TipoSaldoCuentum IdTipoSaldoCuentaNavigation { get; set; }
 
     public virtual ICollection<MovimientoCuentum> MovimientoCuenta { get; set; } = new List<MovimientoCuentum>();
+
+    public string StatusCuentaNombre { get; set; }
+
+    public string TipoSaldoCuentaNombre { get; set; }
 }
