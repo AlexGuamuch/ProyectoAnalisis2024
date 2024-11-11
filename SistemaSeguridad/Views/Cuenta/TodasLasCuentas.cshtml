@@ -7,8 +7,11 @@
 <!-- Contenedor principal -->
 <div class="custom-background p-4">
 
-    <!-- Título -->
-    <h1 class="text-black mb-4">@ViewData["Title"]</h1>
+    <!-- Título y botón Crear -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-black">@ViewData["Title"]</h1>
+        <a asp-action="Create" class="btn btn-success">Crear</a>
+    </div>
 
     <!-- Tabla -->
     <div class="table-responsive">
@@ -82,4 +85,14 @@
     .text-black {
         color: black;
     }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
 </style>

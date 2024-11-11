@@ -1,0 +1,72 @@
+﻿@model SaldoCuentum
+
+@{
+    ViewData["Title"] = "Crear Saldo";
+}
+
+<div class="custom-background p-4">
+    <h1 class="text-black mb-4">@ViewData["Title"]</h1>
+
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="IdPersona" class="text-dark font-weight-bold">ID Cliente</label>
+            <input type="number" asp-for="IdPersona" class="form-control" placeholder="Ingrese el ID del Cliente" required />
+            <span asp-validation-for="IdPersona" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="SaldoAnterior" class="text-dark font-weight-bold">Saldo Anterior</label>
+            <input type="number" asp-for="SaldoAnterior" class="form-control" placeholder="Ingrese el saldo anterior" step="0.01" required />
+            <span asp-validation-for="SaldoAnterior" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Debitos" class="text-dark font-weight-bold">Débitos</label>
+            <input type="number" asp-for="Debitos" class="form-control" placeholder="Ingrese los débitos" step="0.01" required />
+            <span asp-validation-for="Debitos" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Creditos" class="text-dark font-weight-bold">Créditos</label>
+            <input type="number" asp-for="Creditos" class="form-control" placeholder="Ingrese los créditos" step="0.01" required />
+            <span asp-validation-for="Creditos" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+        <a asp-action="Index" class="btn btn-secondary mt-3 ml-2">Cancelar</a>
+    </form>
+</div>
+
+<!-- Estilos CSS -->
+<style>
+    .custom-background {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #333;
+    }
+</style>
