@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using Microsoft.Data.SqlClient;
 using SistemaSeguridad.Models;
 
@@ -50,6 +50,8 @@ namespace SistemaSeguridad.Servicios
 				("select * from USUARIO where IdUsuario = @Nombre", new { Nombre });
 		}
 
+
+
 		public async Task<IEnumerable<UsuarioPrueba>> Obtener()
 		{
 			using var connection = new SqlConnection(connectionString);
@@ -83,12 +85,19 @@ namespace SistemaSeguridad.Servicios
 	public async Task Actualizar(UsuarioPrueba usuario)
 	{
 	using var connection = new SqlConnection(connectionString);
-	await connection.ExecuteAsync(@"UPDATE Usuario 
+            if (usuario.FechaModificacion < new DateTime(1753, 1, 1))
+            {
+                usuario.FechaModificacion = DateTime.Now; // Asignar la fecha actual si está fuera del rango
+            }
+            await connection.ExecuteAsync(@"UPDATE Usuario 
 										SET Nombre = @Nombre, Apellido = @Apellido, FechaNacimiento = @FechaNacimiento, 
-										CorreoElectronico = @CorreoElectronico, TelefonoMovil = @TelefonoMovil
+										CorreoElectronico = @CorreoElectronico, TelefonoMovil = @TelefonoMovil,
+										FechaModificacion = @FechaModificacion,
+										UsuarioModificacion = @UsuarioModificacion
 										WHERE IdUsuario = @IdUsuario", usuario
 										);
-	}
+			
+    }
 
  	public async Task<UsuarioPrueba> BuscarUsuario(string nombre)
 	{
@@ -98,3 +107,4 @@ namespace SistemaSeguridad.Servicios
 	}
     }
 }
+
