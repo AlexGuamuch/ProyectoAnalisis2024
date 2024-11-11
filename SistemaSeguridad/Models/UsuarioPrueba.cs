@@ -1,4 +1,4 @@
-﻿namespace SistemaSeguridad.Models
+namespace SistemaSeguridad.Models
 {
 	public class UsuarioPrueba
 	{
@@ -16,5 +16,15 @@
 		public int IntentosDeAcceso { get; set; }
 		public DateTime? FechaDesbloqueo { get; set; }
 		public int IdStatusUsuario { get; set; }
-	}
+
+		public DateTime? UltimaFechaIngreso { get; set; }
+
+        	public DateTime FechaModificacion { get; set; }
+       		public string UsuarioModificacion { get; set; }
+
+		public string SesionActual { get; set;  }
+
+
+    }
 }
+
