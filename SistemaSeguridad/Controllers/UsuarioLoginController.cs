@@ -1,4 +1,4 @@
-﻿using Azure.Core;
+using Azure.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -121,6 +121,7 @@ namespace SistemaSeguridad.Controllers
 			if (resultado.Succeeded)
 			{
 				//bitacora acceso
+				
 				var userAgent = HttpContext.Request.Headers["User-Agent"];
 				var uaParser = Parser.GetDefault();
 				var clientInfo = uaParser.Parse(userAgent);
@@ -130,21 +131,26 @@ namespace SistemaSeguridad.Controllers
 				var ipAddress = Request.HttpContext.Connection.RemoteIpAddress;
 				var dispositivo = ObtenerTipoDispositivo(userAgent);
 				var navegador = clientInfo.UA.Family;
-				var bitacora = new BitacoraAcceso
+                
+                var bitacora = new BitacoraAcceso
+
 				{
 					IdUsuario = userId,
 					HttpUserAgent = HttpUserAgent,
 					DireccionIp = ipAddress.ToString(),
 					Accion = "Login",
 					SistemaOperativo = sistemaOperativo,
+					
 					Dispositivo = dispositivo,
 					Browser = navegador
 				};
 				await repositoryBitacoraAcceso.Bitacora(bitacora);
-				// Reiniciar contadores y fecha de desbloqueo
-				usuario.IntentosDeAcceso = 0;
-				usuario.FechaDesbloqueo = null;
-				await userManager.UpdateAsync(usuario);
+				usuario.UltimaFechaIngreso = DateTime.Now;
+				
+                // Reiniciar contadores y fecha de desbloqueo
+                usuario.IntentosDeAcceso = 0;
+				
+                await userManager.UpdateAsync(usuario);
 
 				return RedirectToAction("Index", "Home");
 			}
@@ -170,4 +176,5 @@ namespace SistemaSeguridad.Controllers
 
 	}
 }
+
 
