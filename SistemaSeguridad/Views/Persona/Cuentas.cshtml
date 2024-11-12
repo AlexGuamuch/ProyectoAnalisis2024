@@ -23,6 +23,7 @@
                     <th scope="col">Saldo Anterior</th>
                     <th scope="col">Debitos</th>
                     <th scope="col">Creditos</th>
+                    <th scope="col">Saldo Actual</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@
                         <td>@saldoCuentum.SaldoAnterior</td>
                         <td>@saldoCuentum.Debitos</td>
                         <td>@saldoCuentum.Creditos</td>
+                        <td>@(saldoCuentum.Debitos - saldoCuentum.Creditos)</td>
                         <td class="text-center">
                             <a class="btn btn-sm btn-info" asp-action="Movimientos" asp-route-idSaldoCuenta="@saldoCuentum.IdSaldoCuenta">
                                 <i class="fas fa-edit"></i> Ver Movimientos
